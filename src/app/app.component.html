@@ -1,0 +1,43 @@
+<ion-app>
+
+<ion-split-pane contentId="menu-content">
+  
+  <ion-menu contentId="menu-content" menuId="menu-content" side="start" class="Mymenu">
+
+    <ion-content>
+
+      <div class="header">
+        <h2>Saadeddine ABDI</h2>
+        <h3>saadeddine.abdi@gmail.com</h3>
+      </div>
+    
+      <div class="flex">
+        <div class="border-blue">
+          <div class="border-white">
+            <div class="img-box">
+           <h4>SA</h4>
+            </div>
+          </div> 
+        </div>
+      </div>
+
+      <ion-list lines="none"> 
+
+        
+        <ion-item (click)="onProfil()">Mon profil </ion-item>
+        <ion-item (click)="onCommande()">Mes commandes passées</ion-item>
+        <ion-item (click)="logOut()">Me déconnecter</ion-item>
+        <ion-item (click)="onApropos()">A propos</ion-item>
+       
+      </ion-list>
+
+      <h5 class="copyright">RapidO © 2020 - Tous droits réservés</h5>
+
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="menu-content"></ion-router-outlet>
+
+</ion-split-pane>
+   
+</ion-app>

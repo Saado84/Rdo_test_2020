@@ -1,0 +1,68 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.header {
+  background-color: #6699ff;
+  padding-top: 1px;
+  padding-bottom: 5px;
+  border-radius: 57% / 20%;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  margin-top: 37px;
+  font-size: 20px
+}
+
+.name{
+  font-size: initial;
+  margin-top: 45px;
+  font-weight: 700;
+}
+
+.adresse{
+  margin-bottom: 8px;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+
+.tel{
+  color: dodgerblue;
+  margin: 3px;
+  font-size: 15px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+
+
+.statut{
+  margin: 3px;
+  font-size: 15px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  margin-top: 0px;
+}
+
+.supprimer{
+  margin-top: 35px;
+  font-size: medium;
+  margin-right: -85px;
+}
+
+.Menu{
+  margin-top: 125px;
+  font-size: medium;
+  margin-right: 20px
+}
+
+
+
+
+

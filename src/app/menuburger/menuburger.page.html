@@ -1,0 +1,41 @@
+<ion-content>
+
+  <div class="back" (click)="onBack()">
+    <ion-icon name="chevron-back-outline"></ion-icon>
+  </div>
+
+
+  <div class="header">
+    <h2>{{ Menu[0].name }}</h2>
+  </div>
+
+  <div class="flex">
+    
+    <div class="border-white">
+      <div class="img-box">
+        <img class="image" [src]="Menu[0].icone">
+      </div>
+    </div> 
+   
+  </div> 
+
+
+  <ion-list>
+    
+    
+    <ion-item *ngFor="let compos of Compos; let i = index">
+      <ion-label>
+        <h2 class="menuname" >{{ compos.name }}</h2>
+        <h3 class="menuprice">{{ compos.priceSolo }} DZD</h3> 
+        <p class="menucompos">{{ compos.compos }}</p>
+        <ion-button (click)="sendMenu(i)"> Sélectionner </ion-button>
+      </ion-label>
+    </ion-item>
+    
+
+
+    
+  </ion-list>
+
+</ion-content>
+

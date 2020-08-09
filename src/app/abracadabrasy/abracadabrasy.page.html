@@ -1,0 +1,61 @@
+
+<ion-content>
+
+  <div class="header"> 
+
+    <div class="back" (click)="onBack()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </div>
+    
+    <h2>{{ fastFood.name }}</h2>
+    <h3>{{ fastFood.adresse }}</h3>  
+
+  </div>
+
+
+  <div class="flex">
+
+    <div class="border-white">
+      <div class="img-box">
+        <img [src]="fastFood.icone">
+      </div>
+    </div> 
+   
+  </div> 
+
+  <div class="tel" (click)="onPhone()">
+  <ion-icon name="call-outline"></ion-icon>
+ </div>
+
+ <div class="timeShedule" (click)="onTime($event)">
+  <ion-icon name="time-outline"></ion-icon>
+ </div>
+
+ <div *ngIf="state" class="state">
+   <h3 color="success">Ouvert</h3>
+ </div>
+
+ <div *ngIf="!state" class="state" >
+  <h3 color="danger">Fermé</h3>
+</div>
+
+  
+  <ion-list *ngFor="let menu of Menus;  let i=index">
+
+    
+    <ion-item (click)="onSendCompos(i)" routerLink="/menuburger">
+      <ion-avatar slot="start">
+        <img [src]="menu.icone">
+      </ion-avatar>
+      <ion-label class="ion-text-left">
+        <h2>{{ menu.name }}</h2>
+      </ion-label>
+    </ion-item>
+   
+
+  </ion-list>
+
+  <ion-button class="ajouter" size="small" color="primary" [disabled]="sentFavoris" (click)="getFavoris()">+ Ajouter aux favoris</ion-button>
+
+</ion-content>
+

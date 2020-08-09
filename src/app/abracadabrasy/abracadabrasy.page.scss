@@ -1,0 +1,102 @@
+.header{
+    background-color: cornflowerblue;
+    height: 150px;
+    padding-top: 1px;
+    padding-bottom: 190px;
+}
+
+.back{
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 30px;
+    margin-bottom: -65px;
+    color: white;
+}
+
+.header h2 {
+    margin-top: 33px;
+    font-size: 20px;
+    padding-top: 5px;
+    font-weight: bold;
+    text-align: center;
+    color: honeydew;
+}
+
+.header h3{
+    font-size: 11px;
+    color: honeydew;
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 1.2;
+
+}
+
+.img-box{
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden
+}
+
+.border-white{
+    border: 6px solid white;
+    border-radius: 50%;
+    width: fit-content;
+}
+
+
+.flex{
+    display: flex;
+    justify-content: center;
+    margin-top: -76px;
+    margin-bottom: -120px;
+}
+
+.tel{
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-bottom: 130px;
+    margin-top: 4px;
+    margin-left: 273px;
+    margin-right: 330px;
+    font-size: 30px;
+    color: whitesmoke;
+}
+
+.timeShedule{
+
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-bottom: 132px;
+    margin-top: -169px;
+    margin-left: 324px;
+    margin-right: 300px;
+    font-size: 31px;
+    color: whitesmoke;
+}
+
+.state h3{
+
+    font-size: 14px;
+    margin-top: -162px;
+    margin-bottom: 145px;
+    padding-left: 40px;
+    font-weight: bold;
+    color:lightgreen
+}
+    
+
+.ajouter{
+    margin-top: 60px;
+    font-size: smaller;
+    padding-left: 120px;
+}
+
+.my-custom-class {
+    max-height: 240px;
+    font-size: larger;
+    font-weight: bold;
+}
+

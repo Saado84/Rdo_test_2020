@@ -1,0 +1,39 @@
+<ion-content>
+
+  <div class="header">
+    <h1 class="title">RapidO</h1>
+  </div>
+
+  <div>
+
+    <ion-list *ngFor="let menu of menuList, let i = index">
+
+      <ion-item lines="none" >
+        <ion-label>
+          <h3 class="menufastfood">{{ menu.fastFood }}</h3>
+          <h2 class="menuname">{{ menu.name }}</h2>
+          <p class="menucompos">{{ menu.compos }}</p>
+        </ion-label>
+      </ion-item>
+
+        
+      <ion-item> 
+        <ion-label id="resume">
+          <h3 class="quantmenu">{{ menu.choiceValue }} X {{ menu.quantMenu }}</h3>
+          <p>Sauce: {{ menu.sauce }}</p>
+          <p>{{ onDrink(i) }}</p>
+          <h3 class="menuprice">Montant: {{ onPrice(i)*menu.quantMenu }} DZD</h3>
+        </ion-label>
+    
+        <ion-button size="small" color="light" class="supprimer" (click)="deleteMenu(i)">Supprimer</ion-button>
+        <ion-button size="small" color="primary" class="commander" (click)="addMenu(i)">Commander</ion-button>
+    
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+
+
+</ion-content>
+

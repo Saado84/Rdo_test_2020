@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button text="Retour" class="back"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title">Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<br>
+
+<ion-content>
+
+  <ion-item class="info">
+    <ion-label>Nom :</ion-label>
+    <ion-input [(ngModel)]="signUpData.firstName" type="text" placeholder="entrez votre nom"></ion-input>
+  </ion-item>
+
+  <ion-item class="info">
+    <ion-label>Prénom : </ion-label>
+    <ion-input [(ngModel)]="signUpData.lastName" type="text" placeholder="entrez votre prénom"></ion-input>
+  </ion-item>
+  
+  <ion-item class="info">
+    <ion-label>Email : </ion-label>
+    <ion-input [(ngModel)]="signUpData.email" type="email" placeholder="entrez votre email"></ion-input>
+  </ion-item>
+
+  <ion-item class="info">
+    <ion-label>Mot de passe : </ion-label>
+    <ion-input [(ngModel)]="signUpData.password" type="password" placeholder="choisissez un mot de passe"></ion-input>
+  </ion-item>
+
+  <ion-item class="info">
+    <ion-label>Numéro de mobile : </ion-label>
+    <ion-input [(ngModel)]="signUpData.mobile" type="text" placeholder="entrez votre numéro"></ion-input>
+  </ion-item>
+
+  <br>
+
+  <ion-button class="button" expand="block" (click)="signUp()">Je m'inscrits</ion-button>
+
+
+</ion-content>

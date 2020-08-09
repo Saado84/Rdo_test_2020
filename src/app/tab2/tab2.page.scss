@@ -1,0 +1,82 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.header {
+  background-color: #6699ff;
+  padding-top: 1px;
+  padding-bottom: 5px;
+  border-radius: 57% / 20%;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  margin-top: 37px;
+  font-size: 20px
+}
+
+.subtitle{
+  font-size: 20px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+.menufastfood{
+  font-size: medium;
+  margin-top: 45px;
+  font-weight: 700;
+}
+
+.menuname{
+  margin-bottom: 8px;
+  font-size: 18px;
+  margin-top: 27px;
+}
+
+.menuprice{
+  font-size: 14px;
+  color: dodgerblue;
+  margin-top: 25px;
+ 
+}
+
+.menucompos{
+  color: slategray;
+  margin: 3px;
+  font-size: 11px;
+  line-height: 30px;
+  margin-bottom: 14px;
+  margin-top: -5px;
+}
+
+.quantmenu{
+  margin-bottom: 7px;
+}
+
+#resume{
+  margin-bottom: 25px;
+}
+
+.commander{
+  font-size: medium;
+  margin-right: 20px;
+  margin-bottom: -45px;
+}
+
+.supprimer{
+  margin-top: -50px;
+  font-size: medium;
+  margin-right: -100px
+}
+
+
+
+
+
+
+
+

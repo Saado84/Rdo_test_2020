@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button class="back" text="Retour"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title">Commandes passées</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  
+  <div>
+
+    
+    <ion-list *ngFor="let commande of commandesList, let i = index">
+
+      <ion-item lines="none" >
+        <ion-label>
+          <h3 class="menufastfood">{{ commande.fastFood }}</h3>
+          <h2 class="menuname">{{ commande.name }}</h2>
+          <p class="menucompos">{{ commande.compos }}</p>
+        </ion-label>
+      </ion-item>
+
+        
+      <ion-item> 
+        <ion-label id="resume">
+          <h3 class="quantmenu">{{ commande.choiceValue }} X {{ commande.quantMenu }}</h3>
+          <p>Sauce: {{ commande.sauce }}</p>
+          <p>{{ onDrink(i) }}</p>
+          <h3 class="menuprice">Montant total: {{ onPrice(i)*commande.quantMenu }} DZD</h3>
+        </ion-label>
+    
+        <ion-button size="small" color="light" class="supprimer" (click)="deleteMenu(i)">Supprimer</ion-button>
+    
+      </ion-item>
+
+    </ion-list>
+    
+
+  </div> 
+
+</ion-content>

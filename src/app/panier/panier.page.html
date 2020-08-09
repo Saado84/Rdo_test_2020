@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button slot="start" (click)="onDismissPage()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-button>
+    <ion-title>Sélectionner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-item>
+    <ion-label>
+      <h3 class="menufastfood">{{ menu.fastFood }}</h3>
+      <h2 class="menuname">{{ menu.name }}</h2>
+      <h3 class="menuprice">{{ menu.priceSolo }} DZD</h3>
+      <p class="menucompos">{{ menu.compos }}</p>
+    </ion-label>
+  </ion-item>
+
+  <div>
+    <ion-item lines="none">
+      <ion-note text-center>Choisir une option :</ion-note>
+    </ion-item>
+
+    <ion-list id="list">
+      <ion-radio-group [(ngModel)]="menu.choiceValue" mode="md">
+
+        <div>
+          <ion-item>
+            <ion-label>Solo</ion-label>
+            <ion-radio slot="start" value="Solo"></ion-radio>
+            <ion-text slot="end">{{ menu.priceSolo }} DZD </ion-text>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Sauce</ion-label>
+            <ion-select placeholder="Select One" mode="ios" [(ngModel)]="menu.sauce">
+              <ion-select-option value="ketchup">Ketchup</ion-select-option>
+              <ion-select-option value="mayonaise">Mayonnaise</ion-select-option>
+              <ion-select-option value="samorai">Samorai</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+    
+        <div>
+          <ion-item>
+            <ion-label>Menu</ion-label>
+            <ion-radio slot="start" value="Menu"></ion-radio>
+            <ion-text slot="end">{{ menu.priceMenu }} DZD</ion-text>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label>Sauce</ion-label>
+            <ion-select placeholder="Select One" mode="ios" [(ngModel)]="menu.sauce">
+              <ion-select-option value="Ketchup">Ketchup</ion-select-option>
+              <ion-select-option value="Mayonaise">Mayonnaise</ion-select-option>
+              <ion-select-option value="Samorai">Samorai</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Boisson</ion-label>
+            <ion-select placeholder="Select One" mode="ios"[(ngModel)]="menu.boisson">
+              <ion-select-option value="Coca-Cola 33cl">Coca-Cola 33cl</ion-select-option>
+              <ion-select-option value="Selecto 33cl">Selecto 33cl</ion-select-option>
+              <ion-select-option value="Eau plate 33cl">Eau plate 33cl</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+        </div>
+
+      </ion-radio-group>
+    </ion-list>
+
+    
+    <div id="total">
+
+      <ion-item lines="none" *ngIf="menu.choiceValue === 'Solo'">
+        <ion-note class="montant" text-center>Montant : {{ this.menu.quantMenu*this.menu.priceSolo}} DZD </ion-note>
+      </ion-item>
+
+      <ion-item lines="none" *ngIf="menu.choiceValue === 'Menu'">
+        <ion-note class="montant" text-center>Montant : {{ this.menu.quantMenu*this.menu.priceMenu }} DZD </ion-note>
+      </ion-item>
+
+    
+      <ion-button class="button_moins" size="small" type="submit" (click)="popOne()">-</ion-button>
+      <ion-text class="input">{{ menu.quantMenu }}</ion-text>
+      <ion-button class="button_plus"size="small" type="submit" (click)="pushOne()">+</ion-button>
+    </div>
+
+  </div>
+
+  <div>
+    <ion-button class="ajouter" size="small" type="submit" (click)="closePanierPage()">Ajouter au panier</ion-button> 
+  </div>
+
+</ion-content>

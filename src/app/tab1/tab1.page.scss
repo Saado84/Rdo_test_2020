@@ -1,0 +1,48 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.header {
+
+  background-color: #3880ff; 
+  padding-top: 1px;
+  padding-bottom: 5px;
+  border-radius: 57% / 20%;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  margin-bottom: 10px
+}
+
+.title {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  margin-top: 37px;
+  font-size: 20px
+}
+
+.Sub-title{
+  font-size: 29px;
+  margin-top: -45px;
+  color: white;
+  text-shadow: 3px 3px 3px black;
+  padding-left: 17px;
+  margin-bottom: 40px;
+  font-weight: blod;
+}
+
+.catégories{
+  margin: 0px;
+}
+
+.image{
+  box-shadow: 2px 2px 2px #dcd8d8;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(#9e9e9e00, #00000061)
+}
+
+
+
+
+

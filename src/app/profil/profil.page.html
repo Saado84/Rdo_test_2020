@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-buttons class="back" slot="start">
+      <ion-back-button text="Retour" ></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title">Mon profil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<br>
+
+<ion-content>
+
+  <ion-list *ngIf="state === true"> 
+  
+  <ion-item class="info">
+    <ion-label>Nom : </ion-label>
+    <ion-input [(ngModel)]="profil.firstName" type="text" placeholder="entrez votre nom"></ion-input>
+  </ion-item>
+
+  <ion-item class="info">
+    <ion-label>Prénom : </ion-label>
+    <ion-input [(ngModel)]="profil.lastName" type="text" placeholder="entrez votre prénom"></ion-input>
+  </ion-item>
+  
+  <ion-item class="info">
+    <ion-label>*Email : </ion-label>
+    <ion-input [(ngModel)]="profil.email" type="email" placeholder="entrez votre email"></ion-input>
+  </ion-item>
+
+  <ion-item class="info">
+    <ion-label>*Numéro de mobile : </ion-label>
+    <ion-input [(ngModel)]="profil.mobile" type="text" placeholder="entrez votre numéro"></ion-input>
+  </ion-item>
+
+  </ion-list>
+
+
+  <ion-list *ngIf="state === false"> 
+  
+    <ion-item class="info">
+      <ion-label>Nom :  {{ profil.firstName }} </ion-label>
+    </ion-item>
+  
+    <ion-item class="info">
+      <ion-label>Prénom :  {{ profil.lastName }} </ion-label>
+    </ion-item>
+    
+    <ion-item class="info">
+      <ion-label>Email :  {{ profil.email }} </ion-label>
+    </ion-item>
+  
+    <ion-item class="info">
+      <ion-label>Numéro de mobile :  {{ profil.mobile }}  </ion-label>
+    </ion-item>
+  
+    </ion-list>
+
+  <br>
+
+  <ion-button class="button" expand="block" [disabled]="state" (click)="onEdit()">Modifier</ion-button>
+  <br>
+  <ion-button class="button" expand="block" [disabled]="!state" (click)="onSave()">Enregistrer</ion-button>
+
+
+  <h6 *ngIf="state === true" class="champs">* : champs obligatoire </h6>
+
+</ion-content>

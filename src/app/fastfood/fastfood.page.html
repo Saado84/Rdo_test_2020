@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <div class="back">
+    <ion-icon  name="chevron-back-outline" (click)="onBack()"></ion-icon>
+  </div>
+  <ion-title class="title">Fast-food</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content fullscreen>
+
+  <div class="ion-padding">
+
+    <ion-searchbar class=research-bar>
+      
+    </ion-searchbar>
+   
+  </div>
+  
+  <ion-list *ngFor="let fastFood of fastFoods | async; let i= index ">
+   
+    <ion-item (click)="onSendMenus(i)">
+      <ion-avatar slot="start">
+        <img [src]="fastFood.icone">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ fastFood.name }}</h2>
+      </ion-label>
+    </ion-item>
+    
+  </ion-list>
+
+</ion-content>
+
