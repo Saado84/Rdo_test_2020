@@ -64,6 +64,7 @@ export class Tab3Page implements OnInit{
 
 
   // La dernière ligne de cette fonction est à revoir !!
+  // Option 2 : essayer de repasserles data via Firebase
 
   deleteMenu(index: number){
 
