@@ -2,7 +2,7 @@ import { Favoris } from '../Model/Favoris.model';
 import { Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage'
-import { listChanges } from '@angular/fire/database';
+
 
 
 @Injectable()
@@ -49,20 +49,21 @@ export class FavorisService {
 
       this.storage.get('favoris').then(
         (list) => {
-            if (list && list.length) {
+            if (!list && list.length === 0) {
+                return null; 
+            }; 
 
-              let toKeep: Favoris[] = [];
-
+            let toKeep: Favoris[] = [];
               for (let i of list) {
                   if (i.name !== this.favorisList[index].name) {
                         toKeep.push(i);
                     };
                     console.log(i.name); 
                 };
-              return this.storage.set('favoris', toKeep);
-            }
+                return this.storage.set('favoris', toKeep);
         });
+    };
          
-    }; 
+    
 
 }

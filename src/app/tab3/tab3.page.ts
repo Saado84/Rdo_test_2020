@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Favoris } from 'src/Model/Favoris.model';
-import { Subscription } from 'rxjs'; 
-import { FavorisService } from 'src/Services/Favoris.service'
 import { Router } from '@angular/router';
 import { RestoService } from 'src/Services/Resto.service';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -17,13 +14,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 export class Tab3Page implements OnInit{
 
-  favorisList: Favoris[];
-  favorisListSubscription: Subscription;  
-
-  favorisKey = []; 
+  favorisList = [];
+   
 
   constructor(
-    private favorisService: FavorisService, 
     private router: Router,
     private RestoService: RestoService,
     public afDatabase: AngularFireDatabase,
@@ -33,29 +27,36 @@ export class Tab3Page implements OnInit{
 
 
   ngOnInit(){
-    this.favorisListSubscription = this.favorisService.favorisList$.subscribe(
-      (favoris: Favoris[]) => {
-        this.favorisList = favoris; 
-      }
-    );
-    this.favorisService.fetchList();
 
     this.afAuth.authState.subscribe(auth => {
       if(auth) {
-        this.getFavorisKey(auth.uid);
+        this.getFavoris(auth.uid);
       } 
     }); 
   };
 
 
-  getFavorisKey(UserId: string){
+  getFavoris(UserId: string){
     this.afDatabase.list('Users/' + UserId + '/Favoris/')
     .snapshotChanges(['child_added', 'child_removed'])
     .subscribe(Favs => {
-      this.favorisKey = []; 
+      this.favorisList = []; 
       Favs.forEach(Fav => {
-        this.favorisKey.push({
+        this.favorisList.push({
           key: Fav.key,
+          name: Fav.payload.exportVal().name,
+          adresse: Fav.payload.exportVal().adresse,
+          tel: Fav.payload.exportVal().tel,
+          state: Fav.payload.exportVal().state,
+
+          icone: Fav.payload.exportVal().icone,
+          menus: Fav.payload.exportVal().menus,
+          latitude: Fav.payload.exportVal().latitude,
+          longitude: Fav.payload.exportVal().longitude,
+          horaires: Fav.payload.exportVal().horaires,
+          addAsFavoris: Fav.payload.exportVal().addAsFavoris,  
+
+
         });
       });
     });
@@ -68,30 +69,25 @@ export class Tab3Page implements OnInit{
 
   deleteMenu(index: number){
 
-    console.log(this.favorisList[index].name);
+    console.log(this.favorisList[index].key);
 
     this.afAuth.authState.subscribe(auth => {
       if(auth) {
         this.changeFavorisState(auth.uid, index); 
       } 
     }); 
-
     this.favorisList.splice(index,1);    
-    this.favorisService.deleteFavoris(index); 
   };
 
 
-
   changeFavorisState(UserId: string, index: number){
-    this.afDatabase.list('Users/' + UserId + '/Favoris/' + this.favorisKey[index].key).remove(); 
-    
+    this.afDatabase.list('Users/' + UserId + '/Favoris/' + this.favorisList[index].key).remove(); 
   };
 
 
   onSendMenus(index: number) {
     this.RestoService.setData('Menus', this.favorisList[index]); 
     this.router.navigateByUrl('/abracadabrasy/Menus');
-  
   };
 
 

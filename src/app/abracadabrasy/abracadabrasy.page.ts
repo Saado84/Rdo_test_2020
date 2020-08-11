@@ -68,7 +68,7 @@ export class AbracadabrasyPage {
     .snapshotChanges().subscribe(actions => {
        
       actions.forEach(action => {
-        if(this.fastFood.name === action.payload.exportVal().name){
+        if(this.fastFood.key === action.key){
           this.sentFavoris = action.payload.exportVal().addAsFavoris;
         }; 
         
@@ -106,7 +106,16 @@ export class AbracadabrasyPage {
   addUserFavoris(userId: string){
     this.afDatabase.list('Users/'+ userId + '/Favoris/').push({
       name: this.fastFood.name,
+      adresse: this.fastFood.adresse,
+      tel: this.fastFood.tel,
+      icone: this.fastFood.icone,
+      menus: this.fastFood.menus,
+      latitude: this.fastFood.latitude,
+      longitude: this.fastFood.longitude,
+      horaires: this.fastFood.horaires,
       addAsFavoris: this.sentFavoris, 
+      sate: this.state
+
     })
   }; 
 
