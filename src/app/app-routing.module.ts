@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
 import { RestoResolverService } from 'src/Services/Resto-resolver.service';
 import { MenusResolverService } from 'src/Services/Menus-resolver.service';
+
 
 const routes: Routes = [
   {

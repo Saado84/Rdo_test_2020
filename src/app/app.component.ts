@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import{ Router } from '@angular/router'; 
 import { AngularFireAuth } from '@angular/fire/auth'; 
+import { AngularFireDatabase } from '@angular/fire/database';
 
 
 
@@ -16,12 +17,23 @@ import { AngularFireAuth } from '@angular/fire/auth';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
+
+
 export class AppComponent {
+
+  
+  User = {
+  firstName: '', 
+  lastName: '', 
+  email: ''
+  }; 
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public afAuth: AngularFireAuth, 
+    public afDatabase: AngularFireDatabase,
     private router: Router
 
   ) {
@@ -36,12 +48,23 @@ export class AppComponent {
           this.router.navigateByUrl('/login');
         } else {
           this.router.navigateByUrl('/');
+          this.getUserInfo(auth.uid)
+          
         }
       }); 
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }; 
+
+
+  getUserInfo(userId: string){
+    this.afDatabase.object('Users/' + userId).snapshotChanges().subscribe(user => {
+      this.User.firstName = user.payload.exportVal().firstName,
+      this.User.lastName = user.payload.exportVal().lastName,
+      this.User.email = user.payload.exportVal().email
+    }); 
+  };
 
   
   onProfil(){

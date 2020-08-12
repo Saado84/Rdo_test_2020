@@ -8,12 +8,15 @@ import { ProfilPageRoutingModule } from './profil-routing.module';
 
 import { ProfilPage } from './profil.page';
 
+import { NgPipesModule } from 'ngx-pipes'; 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfilPageRoutingModule
+    ProfilPageRoutingModule, 
+    NgPipesModule
   ],
   declarations: [ProfilPage]
 })
