@@ -49,11 +49,12 @@ export class MenuburgerPage implements OnInit {
   }; 
 
 
-  // La version finale doit tenir compte de la résolution du CRUD & le vérouillage du boutton favoris -> 
-  // dans la page abracadabrasy !
+  // Rechecker le bon fonctionnement de la fonction OnBack() après résolution de l'option du Crud strage & 
+  // le vérouillage du boutton ajout aux favoris !
   
   onBack(){
-        
+    this.RestoService.setData('MENUS', this.Menu[1]); 
+    this.navCtrl.navigateBack('/abracadabrasy/MENUS')    
 
   }; 
 

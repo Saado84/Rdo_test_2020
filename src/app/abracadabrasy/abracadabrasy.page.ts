@@ -10,6 +10,8 @@ import { PopoverPage } from '../popover/popover.page';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+import { CallNumber } from '@ionic-native/call-number/ngx'; 
+
 
  
 
@@ -44,7 +46,9 @@ export class AbracadabrasyPage {
     public toastController: ToastController,
     public afDatabase: AngularFireDatabase,
     public afAuth: AngularFireAuth, 
-  ) {
+
+    private callNumber: CallNumber
+   ) {
 
     if(this.route.snapshot.data['special']) {
       this.fastFood = this.route.snapshot.data['special']; 
@@ -122,7 +126,12 @@ export class AbracadabrasyPage {
   }; 
 
 
-  onPhone(){
+  
+  // Il faut vérifier le fonctionnement de cette fonction sur un émulateur ou device réel directement
+  // Ensuite voir si rajouter un toast en casd'erreur !
+  onPhone(number: string){
+
+    console.log('Numero: ' + number); 
 
     const alert = document.createElement('ion-alert');
     alert.message = this.fastFood.tel;
@@ -135,12 +144,21 @@ export class AbracadabrasyPage {
       }, {
         text: 'Appeler',
         handler: () => {
+          this.phoneNumber(number)
         }
       }
     ];
     document.body.appendChild(alert);
     return alert.present();
   };
+
+
+  phoneNumber(number: string){
+    this.callNumber.callNumber(number, true)
+    .then(res => console.log('clavier activé', res))
+    .catch(err => console.log('Erreur activation clavier', err)); 
+  }; 
+  
 
 
   async onTime(ev: Event){
