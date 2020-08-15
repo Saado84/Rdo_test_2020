@@ -34,7 +34,7 @@ export class PanierPage implements OnInit {
     private navParams: NavParams, 
     private menuService: MenuService,
     private toastController: ToastController,
-    private router: Router) {}
+    public router: Router) {}
 
 
   ngOnInit() {

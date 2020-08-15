@@ -1,10 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Menu } from 'src/Model/Menu.model';
 
 import { AngularFireDatabase } from '@angular/fire/database';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs'; 
 import { MenuService } from 'src/Services/Menu.service';
 import { CommandesService } from 'src/Services/Commandes.service';
+
 
 
 @Component({
@@ -13,13 +14,19 @@ import { CommandesService } from 'src/Services/Commandes.service';
   styleUrls: ['tab2.page.scss']
 })
 
-export class Tab2Page implements OnInit, OnDestroy{
+export class Tab2Page implements OnInit{
   
 
   menuList: Menu[];
   menuListSubscription: Subscription; 
+  
     
-  constructor(public afDB: AngularFireDatabase, private menuService: MenuService, private commandesService: CommandesService){};
+  constructor(
+    public afDB: AngularFireDatabase, 
+    private menuService: MenuService, 
+    private commandesService: CommandesService,
+  ){};
+
 
   ngOnInit(){
     this.menuListSubscription = this.menuService.menuList$.subscribe(
@@ -30,9 +37,6 @@ export class Tab2Page implements OnInit, OnDestroy{
     this.menuService.fetchList();
   };
 
-  ngOnDestroy(){
-    this.menuListSubscription.unsubscribe();
-  };
 
 
   onPrice(index: number){
@@ -46,9 +50,12 @@ export class Tab2Page implements OnInit, OnDestroy{
     if(this.menuList[index].choiceValue === "Menu")
     return "Boisson: " + this.menuList[index].boisson;
   };
+  
 
   deleteMenu(index: number){
-    this.menuList.splice(index, 1);
+    this.menuService.deleteMenu(this.menuList[index].name).then(() => {
+      this.menuService.fetchList();
+    }); 
   };
 
 

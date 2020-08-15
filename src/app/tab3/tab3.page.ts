@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Favoris } from 'src/Model/Favoris.model';
-import { Subscription } from 'rxjs'; 
-import { FavorisService } from 'src/Services/Favoris.service'
+ 
+import { FavorisService } from 'src/Services/Favoris.service'; 
 import { Router } from '@angular/router';
 import { RestoService } from 'src/Services/Resto.service';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -18,7 +18,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class Tab3Page implements OnInit{
 
   favorisList: Favoris[];
-  favorisListSubscription: Subscription;  
+    
 
   favorisKey = []; 
 
@@ -33,18 +33,21 @@ export class Tab3Page implements OnInit{
 
 
   ngOnInit(){
-    this.favorisListSubscription = this.favorisService.favorisList$.subscribe(
-      (favoris: Favoris[]) => {
-        this.favorisList = favoris; 
-      }
-    );
-    this.favorisService.fetchList();
+
+   this.loadFavoris();
 
     this.afAuth.authState.subscribe(auth => {
       if(auth) {
         this.getFavorisKey(auth.uid);
       } 
     }); 
+  };
+
+  loadFavoris(){
+
+    this.favorisService.getFavoris().then(list => {
+      this.favorisList = list; 
+    });
   };
 
 
@@ -73,10 +76,10 @@ export class Tab3Page implements OnInit{
       if(auth) {
         this.changeFavorisState(auth.uid, index); 
       } 
-    }); 
-
-    this.favorisList.splice(index,1);    
-    this.favorisService.deleteFavoris(index); 
+    });   
+    this.favorisService.deleteFavoris(this.favorisList[index].name);
+    this.loadFavoris(); 
+    
   };
 
 

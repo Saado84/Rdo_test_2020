@@ -1,6 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Menu } from 'src/Model/Menu.model'; 
-import { Subscription } from 'rxjs';
+
 import { CommandesService } from 'src/Services/Commandes.service';
 
 
@@ -10,27 +10,27 @@ import { CommandesService } from 'src/Services/Commandes.service';
   templateUrl: './commandes.page.html',
   styleUrls: ['./commandes.page.scss'],
 })
-export class CommandesPage implements OnInit, OnDestroy{
+export class CommandesPage implements OnInit{
 
   commandesList: Menu[];
-  commandesListSubscription: Subscription;  
+   
 
-  constructor(private commandesService: CommandesService) {}
+  constructor(
+    private commandesService: CommandesService) {
+
+    this.loadCommandes(); 
+  }
 
 
   ngOnInit() {
-    this.commandesListSubscription = this.commandesService.commandesList$.subscribe(
-      (commandes: Menu[]) => {
-        this.commandesList = commandes; 
-      }
-    );
-    this.commandesService.fetchList();
+
   };
 
-  ngOnDestroy(){
-    this.commandesListSubscription.unsubscribe();
+  loadCommandes(){
+    this.commandesService.getCommandes().then(list => {
+      this.commandesList = list; 
+    });
   };
-
 
 
   onDrink(index: number){  
@@ -46,9 +46,14 @@ export class CommandesPage implements OnInit, OnDestroy{
   }; 
 
 
-  deleteMenu(index: number){
-    this.commandesList.splice(index,1);
+  deleteCommande(index: number){
+    this.commandesService.deleteCommande(this.commandesList[index].name).then(() => {
+      this.loadCommandes();
+    }); 
   };
+
+
+
   
 
 }

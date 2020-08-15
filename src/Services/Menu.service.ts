@@ -1,5 +1,5 @@
 import { Menu } from '../Model/Menu.model';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs'; 
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage'
 
@@ -33,13 +33,33 @@ export class MenuService {
     fetchList(){
         this.storage.get('menus').then(
             (list) => {
-                if (list && list.length) {
+                if (list) {
                     this.menuList = list.slice();
+                } else {
+                    return null; 
                 }
                 this.emitList();
             }
         );
     };
 
+
+
+    deleteMenu(name: string): Promise<Menu> {
+        return this.storage.get('menus').then((list: Menu[]) => {
+            if(list && list.length) {
+
+            let toKeep: Menu[] = []; 
+
+            for(let i of list) {
+                if(i.name !== name){
+                    toKeep.push(i); 
+                }
+            }
+            return this.storage.set('menus', toKeep); 
+            
+        }});  
+    
+    };
 
 }
