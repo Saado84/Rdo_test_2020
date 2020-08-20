@@ -27,6 +27,8 @@ export class PanierPage implements OnInit {
     quantMenu: 1,
 
   }; 
+
+  timeKeep:''; 
   
 
   constructor(
@@ -57,7 +59,8 @@ export class PanierPage implements OnInit {
       this.menu.sauce,
       this.menu.boisson,
       this.menu.choiceValue,
-      this.menu.quantMenu
+      this.menu.quantMenu,
+      this.timeKeep
     );
     this.menuService.addMenu(newMenu);
     this.modalController.dismiss();

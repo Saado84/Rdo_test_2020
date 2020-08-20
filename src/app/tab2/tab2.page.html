@@ -17,7 +17,7 @@
       </ion-item>
 
         
-      <ion-item> 
+      <ion-item lines="none"> 
         <ion-label id="resume">
           <h3 class="quantmenu">{{ menu.choiceValue }} X {{ menu.quantMenu }}</h3>
           <p>Sauce: {{ menu.sauce }}</p>
@@ -28,6 +28,19 @@
         <ion-button size="small" color="light" class="supprimer" (click)="deleteMenu(i)">Supprimer</ion-button>
         <ion-button size="small" color="primary" class="commander" (click)="addMenu(i)">Commander</ion-button>
     
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="time">Je récupère ma commande à : </ion-label>
+        <div class="timeInPut">
+        <ion-datetime class="timeKeep" 
+        displayFormat="HH:mm" 
+        [min]="heureOV" [max]="heureFM" 
+        picker-format="HH:mm A"
+        display-timezone="utc"
+        placeholder="00:00"
+        [(ngModel)]="initialTime"></ion-datetime>
+        </div>  
       </ion-item>
 
     </ion-list>

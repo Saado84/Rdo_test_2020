@@ -1,11 +1,12 @@
 <ion-content>
 
+  <h3 class="title">Horaires d'ouverture :</h3>
 
  <ion-list *ngFor="let horaire of horaires">
 
   <ion-item>
     <h4 class="jour">{{ horaire.jour }}</h4>
-    <h5 class="heure">{{ horaire.heure }} </h5>
+    <h5 class="heure">{{ horaire.heureOV }} - {{ horaire.heureFM }} </h5>
   </ion-item>
 
  </ion-list>

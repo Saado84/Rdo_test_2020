@@ -1,5 +1,5 @@
 import { Favoris } from '../Model/Favoris.model';
-
+import { Subject } from 'rxjs'; 
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
@@ -10,35 +10,46 @@ import { Storage } from '@ionic/storage';
 export class FavorisService {
 
 
+    private favorisList: Favoris[] = [];
+    favorisList$ = new Subject<Favoris[]>();
+
     constructor(private storage: Storage){}
 
+    emitList(){
+        this.favorisList$.next(this.favorisList)
+    };
 
 
-    addFavoris(favoris: Favoris): Promise<any> {
-        return this.storage.get('favoris').then((list: Favoris[]) => {
-            if(list) {
-                list.push(favoris); 
-                return this.storage.set('favoris', list);
-            } else {
-                return this.storage.set('favoris', [favoris]); 
-            }
-        });
-    }; 
+    addFavoris(favoris: Favoris){
+        this.favorisList.push(favoris);
+        this.saveList();
+        this.emitList(); 
+    };
 
 
-    getFavoris(): Promise<Favoris[]> {
-        return this.storage.get('favoris'); 
+    saveList(){
+        this.storage.set('favoris', this.favorisList);
     };
     
-    
-    // le fonctionnement de cette fonction est à revoir !!
-    
+
+    fetchList(){
+        this.storage.get('favoris').then(
+            (list) => {
+                if (list) {
+                    this.favorisList = list.slice();
+                } else {
+                    return null; 
+                }
+                this.emitList();
+            }
+        );
+    };
+
+
 
     deleteFavoris(name: string): Promise<Favoris> {
         return this.storage.get('favoris').then((list: Favoris[]) => {
-            if(!list || list.length === 0) {
-                return null; 
-            }
+            if(list && list.length) {
 
             let toKeep: Favoris[] = []; 
 
@@ -48,9 +59,9 @@ export class FavorisService {
                 }
             }
             return this.storage.set('favoris', toKeep); 
-        });
+            
+        }});  
+    
     };
-
-
 
 }

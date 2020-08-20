@@ -17,7 +17,7 @@ export class MenuburgerPage implements OnInit {
 
   Menu: any[]; 
 
-  Compos: any[]; 
+  Compos: any[];  
 
   menu$ = {
 
@@ -45,12 +45,9 @@ export class MenuburgerPage implements OnInit {
       this.Menu = this.route.snapshot.data['Special'];      
     }; 
     this.Compos = this.Menu[0].compos;  
-   
+    
   }; 
 
-
-  // Rechecker le bon fonctionnement de la fonction OnBack() après résolution de l'option du Crud strage & 
-  // le vérouillage du boutton ajout aux favoris !
   
   onBack(){
     this.RestoService.setData('MENUS', this.Menu[1]); 

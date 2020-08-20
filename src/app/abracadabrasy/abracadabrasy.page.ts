@@ -128,7 +128,7 @@ export class AbracadabrasyPage {
 
   
   // Il faut vérifier le fonctionnement de cette fonction sur un émulateur ou device réel directement
-  // Ensuite voir si rajouter un toast en casd'erreur !
+  // Ensuite voir si rajouter un toast en cas d'erreur !
   onPhone(number: string){
 
     console.log('Numero: ' + number); 

@@ -19,7 +19,11 @@ export class Tab2Page implements OnInit{
 
   menuList: Menu[];
   menuListSubscription: Subscription; 
-  
+
+  heureOV = "12:30";
+  heureFM = "23:30"; 
+  initialTime = "";  
+   
     
   constructor(
     public afDB: AngularFireDatabase, 
@@ -60,6 +64,8 @@ export class Tab2Page implements OnInit{
 
 
   addMenu(index: number){
+    this.presentAlert(index);
+    if(this.initialTime !== ""){
     this.afDB.list('Menus/').push({
       fastFood: this.menuList[index].fastFood,
       menu: this.menuList[index].name,
@@ -69,19 +75,27 @@ export class Tab2Page implements OnInit{
       sauce: this.menuList[index].sauce,
       boisson: this.menuList[index].boisson,
       price: this.onPrice(index), 
+      timeKeep: this.initialTime, 
     });
     this.sendCommande(index);
-    this.presentAlert(index);
     this.deleteMenu(index);
+    this.initialTime = ""; 
+  }; 
   };
 
 
   presentAlert(index: number) {
     const alert = document.createElement('ion-alert');
+    if(this.initialTime == ""){
+    alert.message = 'Veuillez choisir à quelle heure souhaiteriez vous passerer récupérer votre commande';
+    alert.buttons = ['OK']  
+    } 
+    else {
     alert.header = 'Commande envoyée';
-    alert.subHeader = 'temps de préparation estimé: 25 min';
-    alert.message = 'Veuillez passer récupérer votre commande chez: '+ this.menuList[index].fastFood;
-    alert.buttons = ['OK'];
+    alert.message = 'Veuillez passer récupérer votre commande chez: '
+    + this.menuList[index].fastFood + " à: " + this.initialTime ;
+    alert.buttons = ['OK']
+    }; 
   
     document.body.appendChild(alert);
     return alert.present();
@@ -97,7 +111,8 @@ export class Tab2Page implements OnInit{
       this.menuList[index].sauce,
       this.menuList[index].boisson,
       this.menuList[index].choiceValue,
-      this.menuList[index].quantMenu
+      this.menuList[index].quantMenu, 
+      this.initialTime, 
     );
     this.commandesService.addCommande(newCommande);
   };

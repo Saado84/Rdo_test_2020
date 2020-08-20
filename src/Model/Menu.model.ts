@@ -10,6 +10,7 @@ export class Menu {
         public boisson: string,
         public choiceValue: string, 
         public quantMenu: number,
+        public timeKeep: string, 
     ){}; 
 
 }; 
