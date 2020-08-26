@@ -8,6 +8,7 @@ import { CommandesService } from 'src/Services/Commandes.service';
 
 
 
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -20,9 +21,13 @@ export class Tab2Page implements OnInit{
   menuList: Menu[];
   menuListSubscription: Subscription; 
 
-  heureOV = "12:30";
-  heureFM = "23:30"; 
-  initialTime = "";  
+  heureOV: string;
+  heureFM: string; 
+  initialTime = ""; 
+
+  date = new Date();  
+  day = this.date.getDay(); 
+  
    
     
   constructor(
@@ -42,6 +47,22 @@ export class Tab2Page implements OnInit{
   };
 
 
+  getHoraires(index: number){
+
+    let list = this.menuList[index].horaires; 
+
+    for(let i of list){
+      if(list.indexOf(i) === this.day){
+        console.log(this.day);
+        console.log(this.date);       
+        console.log(i.jour); 
+        this.heureOV = i.srvOV; 
+        this.heureFM = i.srvFM; 
+      };
+    };
+  }
+
+
 
   onPrice(index: number){
     if(this.menuList[index].choiceValue === "Solo")
@@ -49,6 +70,7 @@ export class Tab2Page implements OnInit{
     else if(this.menuList[index].choiceValue === "Menu")
     return this.menuList[index].priceMenu
   };  
+
 
   onDrink(index: number){  
     if(this.menuList[index].choiceValue === "Menu")
@@ -65,6 +87,7 @@ export class Tab2Page implements OnInit{
 
   addMenu(index: number){
     this.presentAlert(index);
+
     if(this.initialTime !== ""){
     this.afDB.list('Menus/').push({
       fastFood: this.menuList[index].fastFood,
@@ -93,7 +116,7 @@ export class Tab2Page implements OnInit{
     else {
     alert.header = 'Commande envoyée';
     alert.message = 'Veuillez passer récupérer votre commande chez: '
-    + this.menuList[index].fastFood + " à: " + this.initialTime ;
+    + this.menuList[index].fastFood + " à: " + this.initialTime
     alert.buttons = ['OK']
     }; 
   
@@ -112,7 +135,8 @@ export class Tab2Page implements OnInit{
       this.menuList[index].boisson,
       this.menuList[index].choiceValue,
       this.menuList[index].quantMenu, 
-      this.initialTime, 
+      this.menuList[index].horaires, 
+      this.initialTime,  
     );
     this.commandesService.addCommande(newCommande);
   };

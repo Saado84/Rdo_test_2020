@@ -17,7 +17,9 @@ export class MenuburgerPage implements OnInit {
 
   Menu: any[]; 
 
-  Compos: any[];  
+  Compos: any[]; 
+  
+  Horaires: any[]; 
 
   menu$ = {
 
@@ -44,7 +46,8 @@ export class MenuburgerPage implements OnInit {
     if(this.route.snapshot.data['Special']) {
       this.Menu = this.route.snapshot.data['Special'];      
     }; 
-    this.Compos = this.Menu[0].compos;  
+    this.Compos = this.Menu[0].compos; 
+    this.Horaires = this.Menu[1].horaires;  
     
   }; 
 
@@ -64,7 +67,9 @@ export class MenuburgerPage implements OnInit {
         menuName: this.menu$.name,
         menuPriceSolo: this.menu$.priceSolo, 
         menuCompos: this.menu$.compos, 
-        menuPriceMenu: this.menu$.priceMenu,   
+        menuPriceMenu: this.menu$.priceMenu,
+        
+        menuHoraires: this.Horaires, 
       },
       presentingElement: this.routerOutlet.nativeEl
 

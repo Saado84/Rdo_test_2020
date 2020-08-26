@@ -30,7 +30,7 @@
           <p>Sauce: {{ commande.sauce }}</p>
           <p>{{ onDrink(i) }}</p>
           <h3 class="menuprice">Montant total: {{ onPrice(i)*commande.quantMenu }} DZD</h3>
-          <h4 class="DateTime"> Commande à récupérée <br> le (date et heure): {{ commande.timeKeep | date: 'short' }}</h4>
+          <h4 class="DateTime"> Commande à récupérer le :<br> {{ commande.timeKeep | date: 'dd/MM/y à HH:mm': '+0100' }}</h4>
         </ion-label>
     
         <ion-button size="small" color="light" class="supprimer" (click)="deleteCommande(i)">Supprimer</ion-button>

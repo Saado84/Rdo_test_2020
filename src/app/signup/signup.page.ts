@@ -19,6 +19,8 @@ export class SignupPage implements OnInit {
 
   }; 
 
+ 
+
   constructor(public afAuth: AngularFireAuth, public afDB: AngularFireDatabase) { }
 
   ngOnInit() {

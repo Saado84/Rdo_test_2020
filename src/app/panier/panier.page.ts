@@ -28,7 +28,9 @@ export class PanierPage implements OnInit {
 
   }; 
 
-  timeKeep:''; 
+  timeKeep:'';
+
+  Horaires: any[]; 
   
 
   constructor(
@@ -45,6 +47,9 @@ export class PanierPage implements OnInit {
     this.menu.priceSolo = this.navParams.get('menuPriceSolo');
     this.menu.compos = this.navParams.get('menuCompos');
     this.menu.priceMenu = this.navParams.get('menuPriceMenu');
+    this.Horaires = this.navParams.get('menuHoraires'); 
+
+    console.log(this.Horaires); 
   };
 
 
@@ -60,6 +65,7 @@ export class PanierPage implements OnInit {
       this.menu.boisson,
       this.menu.choiceValue,
       this.menu.quantMenu,
+      this.Horaires, 
       this.timeKeep
     );
     this.menuService.addMenu(newMenu);

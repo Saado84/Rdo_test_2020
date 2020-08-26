@@ -30,15 +30,16 @@
     
       </ion-item>
 
-      <ion-item>
-        <ion-label class="time">Je récupère ma commande à : </ion-label>
+      <ion-item (click)="getHoraires(i)">
+        <ion-label class="time">Je récupère <br> ma commande à : </ion-label>
         <div class="timeInPut">
         <ion-datetime class="timeKeep" 
+        mode="ios"
         displayFormat="HH:mm" 
         [min]="heureOV" [max]="heureFM" 
-        picker-format="HH:mm A"
-        display-timezone="utc"
-        placeholder="00:00"
+        picker-format="HH:mm"
+        display-timezone="Africa/Algiers"
+        placeholder="Choisissez l'heure"
         [(ngModel)]="initialTime"></ion-datetime>
         </div>  
       </ion-item>

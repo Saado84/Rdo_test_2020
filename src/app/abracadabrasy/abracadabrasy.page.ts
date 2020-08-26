@@ -28,9 +28,7 @@ export class AbracadabrasyPage {
   Menus: any[]; 
 
   Horaires: any[]; 
-
-  state = false;  
-    
+     
   sentFavoris = false; 
 
 
