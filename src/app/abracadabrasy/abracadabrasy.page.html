@@ -24,12 +24,16 @@
   </div> 
 
   <div class="tel" (click)="onPhone(fastFood.tel)">
-  <ion-icon name="call-outline"></ion-icon>
- </div>
+   <ion-icon name="call-outline"></ion-icon>
+  </div>
 
- <div class="timeShedule" (click)="onTime($event)">
-  <ion-icon name="time-outline"></ion-icon>
- </div>
+  <div class="location" (click)="onLOcate()">
+    <ion-icon name="location-outline"></ion-icon>
+  </div>
+
+  <div class="timeShedule" (click)="onTime($event)">
+   <ion-icon name="time-outline"></ion-icon>
+  </div>
 
   
   <ion-list *ngFor="let menu of Menus;  let i=index">

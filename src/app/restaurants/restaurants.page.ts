@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular'; 
 
 @Component({
   selector: 'app-restaurants',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantsPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    public navCtrl: NavController
+  ) { }
 
   ngOnInit() {
   }
+
+  onBack(){
+    this.navCtrl.navigateBack('/')
+  };
 
 }

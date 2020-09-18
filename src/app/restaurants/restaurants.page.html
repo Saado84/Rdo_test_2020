@@ -1,13 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button text="Retour"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Restaurants</ion-title>
+  <ion-toolbar class="toolbar">
+    <div class="back">
+    <ion-icon  name="chevron-back-outline" (click)="onBack()"></ion-icon>
+  </div>
+  <ion-title class="title">Restaurants</ion-title>
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
+
+  <div class="ion-padding">
+
+    <ion-searchbar class=research-bar>
+      
+    </ion-searchbar>
+   
+  </div>
 
 </ion-content>
 

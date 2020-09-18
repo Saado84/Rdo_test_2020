@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Favoris } from 'src/Model/Favoris.model';
+import { MapPage } from '../map/map.page';
 
 import { FavorisService } from 'src/Services/Favoris.service'; 
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenusService } from 'src/Services/Menus.service';
 
 import { PopoverController, ToastController, NavController } from '@ionic/angular'; 
+import { ModalController, IonRouterOutlet } from '@ionic/angular';
 import { PopoverPage } from '../popover/popover.page';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -36,6 +38,8 @@ export class AbracadabrasyPage {
     private favorisService: FavorisService, 
     private route: ActivatedRoute, 
     private router: Router,
+    public modalController: ModalController, 
+    private routerOutlet: IonRouterOutlet,
 
     public navCtrl: NavController, 
 
@@ -50,7 +54,10 @@ export class AbracadabrasyPage {
 
     if(this.route.snapshot.data['special']) {
       this.fastFood = this.route.snapshot.data['special']; 
-    };
+      console.log(this.fastFood.name);
+    } else {
+      console.log(this.fastFood.name)
+    }; 
 
     this.Menus = this.fastFood.menus; 
     this.Horaires = this.fastFood.horaires; 
@@ -125,8 +132,8 @@ export class AbracadabrasyPage {
 
 
   
-  // Il faut vérifier le fonctionnement de cette fonction sur un émulateur ou device réel directement
-  // Ensuite voir si rajouter un toast en cas d'erreur !
+  // Il faut vérifier le fonctionnement de cette fonction sur un émulateur ou device réel directement //
+  // Ensuite voir si rajouter un toast en cas d'erreur ! //
   onPhone(number: string){
 
     console.log('Numero: ' + number); 
@@ -156,6 +163,21 @@ export class AbracadabrasyPage {
     .then(res => console.log('clavier activé', res))
     .catch(err => console.log('Erreur activation clavier', err)); 
   }; 
+
+
+  async onLOcate(){
+    
+    const modal = await this.modalController.create({
+      component: MapPage,
+      swipeToClose: true,
+      componentProps: {
+        Lat: this.fastFood.latitude, 
+        Lng: this.fastFood.longitude
+      },
+      presentingElement: this.routerOutlet.nativeEl 
+    });
+    modal.present();  
+  }; 
   
 
 
@@ -176,7 +198,7 @@ export class AbracadabrasyPage {
 
     const toast = await this.toastController.create({
       message: this.fastFood.name + ' a été ajouté aux favoris',
-      duration: 3000
+      duration: 1500
     });
     toast.present();
   };
