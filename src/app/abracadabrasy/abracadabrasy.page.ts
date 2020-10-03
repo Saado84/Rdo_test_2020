@@ -30,6 +30,7 @@ export class AbracadabrasyPage {
   Menus: any[]; 
 
   Horaires: any[]; 
+  Category: string; 
      
   sentFavoris = false; 
 
@@ -40,28 +41,25 @@ export class AbracadabrasyPage {
     private router: Router,
     public modalController: ModalController, 
     private routerOutlet: IonRouterOutlet,
-
     public navCtrl: NavController, 
-
     private MenusService: MenusService,
     public popoverController: PopoverController, 
     public toastController: ToastController,
     public afDatabase: AngularFireDatabase,
     public afAuth: AngularFireAuth, 
-
     private callNumber: CallNumber
-   ) {
+   ) {  
 
-    if(this.route.snapshot.data['special']) {
-      this.fastFood = this.route.snapshot.data['special']; 
-      console.log(this.fastFood.name);
-    } else {
-      console.log(this.fastFood.name)
+    if(this.route.snapshot.data['special']) { 
+      this.fastFood = {}; 
+      this.fastFood = this.route.snapshot.data['special']
     }; 
 
+    console.log(this.fastFood); 
+    
     this.Menus = this.fastFood.menus; 
     this.Horaires = this.fastFood.horaires; 
-
+    this.Category = this.fastFood.cat; 
 
     this.afAuth.authState.subscribe(auth => {
       if(auth) {
@@ -70,7 +68,7 @@ export class AbracadabrasyPage {
     });
 
   };
- 
+  
 
   getFavorisState(UserId: string){
     this.afDatabase.list('Users/' + UserId + '/Favoris/')
@@ -96,7 +94,8 @@ export class AbracadabrasyPage {
     this.fastFood.menus, 
     this.fastFood.latitude, 
     this.fastFood.longitude, 
-    this.fastFood.horaires
+    this.fastFood.horaires, 
+    this.fastFood.cat
     );
     this.favorisService.addFavoris(newFavoris);
 
@@ -120,8 +119,19 @@ export class AbracadabrasyPage {
   }; 
 
 
-  onBack(){
-    this.navCtrl.navigateBack('/fastfood'); 
+
+  onBack(cat: string){ 
+
+    if(cat == "FF"){
+      this.navCtrl.navigateBack('/fastfood')
+    } else {
+      if(cat == "PZ"){
+        this.navCtrl.navigateBack('/pizzeria')
+      } else {
+        this.navCtrl.navigateBack('/restaurants')
+      };
+    };
+ 
   }; 
 
 
@@ -165,6 +175,9 @@ export class AbracadabrasyPage {
   }; 
 
 
+
+  // la data passe en dismiss mais son affichage est "undefined" à cause de l'asynchrone //
+  // résoudre cette problématique //
   async onLOcate(){
     
     const modal = await this.modalController.create({
@@ -176,9 +189,9 @@ export class AbracadabrasyPage {
       },
       presentingElement: this.routerOutlet.nativeEl 
     });
-    modal.present();  
-  }; 
-  
+    modal.present(); 
+  };
+   
 
 
   async onTime(ev: Event){

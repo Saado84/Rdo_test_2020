@@ -32,10 +32,8 @@ export class FastfoodPage  {
     private toastCtrl: ToastController) { 
   
     this.loadFastFoods(); 
- 
   };
  
-
   async loadFastFoods() {
     const loading = await this.loadCtrl.create({
       message: 'Veuillez patienter...',

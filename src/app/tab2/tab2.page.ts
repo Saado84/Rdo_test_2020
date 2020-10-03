@@ -110,7 +110,7 @@ export class Tab2Page implements OnInit{
   presentAlert(index: number) {
     const alert = document.createElement('ion-alert');
     if(this.initialTime == ""){
-    alert.message = 'Veuillez choisir à quelle heure souhaiteriez vous passerer récupérer votre commande';
+    alert.message = 'Veuillez choisir à quelle heure souhaiteriez vous passer récupérer votre commande';
     alert.buttons = ['OK']  
     } 
     else {

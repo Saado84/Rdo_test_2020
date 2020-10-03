@@ -40,7 +40,7 @@ export class MapPage {
 
 
   ionViewDidEnter() {
-    this.locateMe();   
+    this.locateMe();  
   };
   
 
@@ -182,12 +182,25 @@ export class MapPage {
     this.infoMarkers.push(infoMarker); 
   }; 
 
-  onSendMenus(menus: any) {  
-    
-    this.RestoService.setData('Map_Menus', menus); 
-    this.router.navigateByUrl('/abracadabrasy/Map_Menus');
-    this.closeMapPage();
-    
+  
+  // Trouver la fonction pour passer l'objet via le dismiss de la modal //
+  onSendMenus(menus: any):void { 
+
+    let receivedLat = this.navParams.get('Lat'); 
+
+    if(receivedLat){
+
+      this.RestoService.setData('mapMENUS', menus); 
+      this.router.navigateByUrl('/abracadabrasy/mapMENUS');
+
+    } else {
+
+      this.RestoService.setData('mapMenus', menus); 
+      this.router.navigateByUrl('/abracadabrasy/mapMenus');
+
+    }; 
+
+    this.closeMapPage()  
   };
 
 

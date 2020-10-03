@@ -12,28 +12,16 @@
 
   <div class="ion-padding">
       
-       <div class="catégories">
+    <div class="catégories" *ngFor = "let image of images; let i= index">
 
-        <div (click)="onOpenfastfoodPage()">
-          <ion-img class="image" src="https://1jcyvo31ibxh2h7yvh1t33pn-wpengine.netdna-ssl.com/wp-content/uploads/2017/05/Burger-Presentations.jpg">
-          </ion-img>
-          <h5 class="Sub-title">Fast-food</h5>
-        </div>
-        
-  
-        <div (click)="onOpenpizzeriaPage()">
-         <ion-img class="image" src="https://www.lifetv24.com/media/imgAll/2018December/1-1903171521.jpg">
-         </ion-img>
-         <h5 class="Sub-title">Pizzeria</h5>
-        </div>
+      <div (click)="onOpenList(i)">
+        <ion-img class="image" [src]="image.ref">
+        </ion-img>
+        <h5 class="Sub-title">{{ image.name }}</h5>
 
-        <div (click)="onOpenrestaurantsPage()">
-         <ion-img class="image" src="https://www.francetvinfo.fr/image/759r5heei-e3db/1500/843/10414773.jpg">
-         </ion-img>
-         <h5 class="Sub-title">Restaurants</h5>
-        </div>
       </div>
-  
+
+    </div>
 
   </div>
 

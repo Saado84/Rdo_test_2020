@@ -47,9 +47,7 @@ export class PanierPage implements OnInit {
     this.menu.priceSolo = this.navParams.get('menuPriceSolo');
     this.menu.compos = this.navParams.get('menuCompos');
     this.menu.priceMenu = this.navParams.get('menuPriceMenu');
-    this.Horaires = this.navParams.get('menuHoraires'); 
-
-    console.log(this.Horaires); 
+    this.Horaires = this.navParams.get('menuHoraires');  
   };
 
 

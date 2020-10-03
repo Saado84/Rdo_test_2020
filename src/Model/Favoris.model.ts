@@ -8,7 +8,8 @@ export class Favoris {
         public menus: any[], 
         public latitude: string,
         public longitude: string,
-        public horaires: any[]
+        public horaires: any[],
+        public cat: string
       
     ){}; 
     

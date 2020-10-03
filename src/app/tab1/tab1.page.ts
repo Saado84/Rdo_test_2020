@@ -12,33 +12,44 @@ import { MapPage } from '../map/map.page';
 
 export class Tab1Page {
 
+  images = [
+    {
+      name: 'Fast-food',  
+      page: '/fastfood', 
+      ref: '../../assets/Burger.jpg'
+    }, 
+    {
+      name: 'Pizzeria', 
+      page: '/pizzeria', 
+      ref: '../../assets/Pizza.jpg'
+    }, 
+    {
+      name: 'Restaurants', 
+      page: '/restaurants', 
+      ref: '../../assets/Restaurant.jpg'
+    }
+  ]
+
   constructor(  
     public modalController: ModalController, 
     private routerOutlet: IonRouterOutlet,
-    public navCtrl:NavController) {
+    public navCtrl:NavController) { 
 
-  }
+    }
 
-  async openPanierPage(){
-   const modal = await this.modalController.create({
-    component: MapPage,
-    swipeToClose: true,
-    presentingElement: this.routerOutlet.nativeEl 
-   });
-    modal.present(); 
+  
+  onOpenList(index: number){
+    this.navCtrl.navigateForward(this.images[index].page); 
   }; 
 
 
-  onOpenfastfoodPage(){
-    this.navCtrl.navigateForward('/fastfood'); 
-  }
-
-  onOpenpizzeriaPage(){
-    this.navCtrl.navigateForward('/pizzeria'); 
-  }
-
-  onOpenrestaurantsPage(){
-    this.navCtrl.navigateForward('/restaurants'); 
-  }
+  async openPanierPage(){
+    const modal = await this.modalController.create({
+     component: MapPage,
+     swipeToClose: true,
+     presentingElement: this.routerOutlet.nativeEl 
+    });
+     modal.present(); 
+   }; 
 
 }
