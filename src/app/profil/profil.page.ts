@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -47,27 +48,37 @@ export class ProfilPage implements OnInit {
 
     });
   }; 
+
+  onSubmit(form: NgForm){
+
+    const firstName = form.value['firstName']; 
+    const lastName = form.value['lastName'];
+    const email = form.value['email']; 
+    const mobile = form.value['mobile']; 
+
+    this.onSave(firstName, lastName, email, mobile)
+  }
   
 
-  onSave() {
+  onSave(nom: string, prénom: string, mail: string, tel: string) {
     this.state = false; 
     this.afAuth.authState.subscribe(auth => {
  
       if(auth){ 
-        this.updateUserInfo(auth.uid);
+        this.updateUserInfo(auth.uid, nom, prénom, mail, tel);
       }
 
     });
   };
 
 
-  updateUserInfo(userId: string){
+  updateUserInfo(userId: string, nom: string, prénom: string, mail: string, tel: string){
 
     this.afDatabase.object('Users/' + userId).set({
-      firstName: this.profil.firstName,
-      lastName: this.profil.lastName,
-      email: this.profil.email,
-      mobile: this.profil.mobile
+      firstName: nom,
+      lastName: prénom,
+      email: mail,
+      mobile: tel
     })
   };
 

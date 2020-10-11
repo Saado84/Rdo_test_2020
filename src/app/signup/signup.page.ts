@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth'; 
 import { AngularFireDatabase } from '@angular/fire/database';
+import { NgForm } from '@angular/forms'; 
 
 
 @Component({
@@ -8,42 +9,44 @@ import { AngularFireDatabase } from '@angular/fire/database';
   templateUrl: './signup.page.html',
   styleUrls: ['./signup.page.scss'],
 })
-export class SignupPage implements OnInit {
-
-  signUpData = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    mobile: '',  
-
-  }; 
-
+export class SignupPage {
  
 
   constructor(public afAuth: AngularFireAuth, public afDB: AngularFireDatabase) { }
 
-  ngOnInit() {
-  }; 
 
-  signUp(){
+  onSubmit(form: NgForm) {
+
+    const firstName = form.value['firstName']; 
+    const lastName = form.value['lastName'];
+    const email = form.value['email'];
+    const password = form.value['password'];
+    const mobile = form.value['mobile']; 
+
+    this.signUp(firstName, lastName, email, password, mobile)
+
+  }
+
+  signUp(nom: string, prénom: string, mail: string, motDePasse: string, tel: string){
     
-    this.afAuth.auth.createUserWithEmailAndPassword(this.signUpData.email, this.signUpData.password)
+    this.afAuth.auth.createUserWithEmailAndPassword(mail, motDePasse)
     .then(auth => {
       console.log('utilisateur connecté; ' + auth.user.uid);
-      this.createUserInfo(auth.user.uid)
+      this.createUserInfo(auth.user.uid, nom, prénom, mail, tel); 
     })
     .catch(error => {
       console.log('utilsateur non connecté!: '+ error); 
     }); 
   }; 
 
-  createUserInfo(userId: string){
+
+  createUserInfo(userId: string, nom: string, prénom: string, mail: string, tel: string){
+    
     this.afDB.object('Users/' + userId).set({
-      firstName: this.signUpData.firstName, 
-      lastName: this.signUpData.lastName,
-      email: this.signUpData.email,
-      mobile: this.signUpData.mobile
+      firstName: nom, 
+      lastName: prénom,
+      email: mail,
+      mobile: tel
     })
   }; 
 

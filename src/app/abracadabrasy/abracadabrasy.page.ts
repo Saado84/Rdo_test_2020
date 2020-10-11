@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Favoris } from 'src/Model/Favoris.model';
 import { MapPage } from '../map/map.page';
 
@@ -23,7 +23,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
   styleUrls: ['./abracadabrasy.page.scss'],
 })
 
-export class AbracadabrasyPage {
+export class AbracadabrasyPage implements OnDestroy {
 
   private fastFood: any; 
 
@@ -50,8 +50,7 @@ export class AbracadabrasyPage {
     private callNumber: CallNumber
    ) {  
 
-    if(this.route.snapshot.data['special']) { 
-      this.fastFood = {}; 
+    if(this.route.snapshot.data['special']) {  
       this.fastFood = this.route.snapshot.data['special']
     }; 
 
@@ -68,6 +67,10 @@ export class AbracadabrasyPage {
     });
 
   };
+
+  ngOnDestroy(){
+    this.fastFood =! this.route.snapshot.data['special']; 
+  }; 
   
 
   getFavorisState(UserId: string){

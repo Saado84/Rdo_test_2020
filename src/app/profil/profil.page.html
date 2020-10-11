@@ -11,32 +11,42 @@
 
 <ion-content>
 
-  <ion-list *ngIf="state === true"> 
+  <div *ngIf="state === true"> 
+
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
   
-  <ion-item class="info">
-    <ion-label>Nom : </ion-label>
-    <ion-input [(ngModel)]="profil.firstName" type="text" placeholder="entrez votre nom"></ion-input>
-  </ion-item>
+    <ion-item class="info">
+      <ion-label for="firstName">*Nom : </ion-label>
+      <ion-input type="text" placeholder="entrez votre nom" name="firstName" ngModel required></ion-input>
+    </ion-item>
 
-  <ion-item class="info">
-    <ion-label>Prénom : </ion-label>
-    <ion-input [(ngModel)]="profil.lastName" type="text" placeholder="entrez votre prénom"></ion-input>
-  </ion-item>
+    <ion-item class="info">
+      <ion-label for="lastName">*Prénom : </ion-label>
+      <ion-input type="text" placeholder="entrez votre prénom" name="lastName" ngModel required></ion-input>
+    </ion-item>
   
-  <ion-item class="info">
-    <ion-label>*Email : </ion-label>
-    <ion-input [(ngModel)]="profil.email" type="email" placeholder="entrez votre email"></ion-input>
-  </ion-item>
+    <ion-item class="info">
+      <ion-label for="email">*Email : </ion-label>
+      <ion-input type="email" placeholder="entrez votre email" name="email" ngModel required></ion-input>
+    </ion-item>
 
-  <ion-item class="info">
-    <ion-label>*Numéro de mobile : </ion-label>
-    <ion-input [(ngModel)]="profil.mobile" type="text" placeholder="entrez votre numéro"></ion-input>
-  </ion-item>
+    <ion-item class="info">
+      <ion-label for="mobile">*Numéro de mobile : </ion-label>
+      <ion-input type="text" placeholder="entrez votre numéro" name="mobile" ngModel required></ion-input>
+    </ion-item>
 
-  </ion-list>
+    <br>
+    <ion-button class="button" expand="block" type="submit" [disabled]="f.invalid">Enregistrer</ion-button>
+
+    <br>
+    <h6 *ngIf="state === true" class="champs">* : champs obligatoire </h6>
+
+   </form>
+
+  </div>
 
 
-  <ion-list *ngIf="state === false"> 
+  <div *ngIf="state === false"> 
   
     <ion-item class="info">
       <ion-label>Nom :  {{ profil.firstName | uppercase }} </ion-label>
@@ -53,16 +63,10 @@
     <ion-item class="info">
       <ion-label>Numéro de mobile :  {{ profil.mobile }}  </ion-label>
     </ion-item>
+
+    <br>
+    <ion-button class="button" expand="block" (click)="onEdit()">Modifier</ion-button>
   
-    </ion-list>
-
-  <br>
-
-  <ion-button class="button" expand="block" [disabled]="state" (click)="onEdit()">Modifier</ion-button>
-  <br>
-  <ion-button class="button" expand="block" [disabled]="!state" (click)="onSave()">Enregistrer</ion-button>
-
-
-  <h6 *ngIf="state === true" class="champs">* : champs obligatoire </h6>
+  </div>
 
 </ion-content>
