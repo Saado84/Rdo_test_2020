@@ -1,10 +1,15 @@
 <ion-header>
-  <ion-toolbar class="toolbar">
-    <ion-buttons class="back" slot="start">
-      <ion-back-button text="Retour" ></ion-back-button>
+
+  <ion-toolbar class="header">
+
+    <ion-buttons slot="start">
+      <ion-back-button class="back"text="" icon="chevron-back"></ion-back-button>
     </ion-buttons>
-    <ion-title class="title">Mon profil</ion-title>
+
+    <img class="logo" src="../../assets/LOGO.png">
+  
   </ion-toolbar>
+
 </ion-header>
 
 <br>
@@ -14,56 +19,77 @@
   <div *ngIf="state === true"> 
 
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      
+      <h5 class="sub_title">Nom* :</h5>
+      <ion-card class="card">
+        <ion-item class="info" lines="none">
+         <ion-input class="data" type="text" placeholder="entrez votre nom" name="firstName" ngModel required></ion-input>
+        </ion-item>
+      </ion-card>
+
+      <h5 class="sub_title">Prénom* :</h5>
+      <ion-card class="card">
+        <ion-item class="info" lines="none">
+         <ion-input class="data" type="text" placeholder="entrez votre prénom" name="lastName" ngModel required></ion-input>
+        </ion-item>
+      </ion-card>
+
+      <h5 class="sub_title">Email* :</h5>
+      <ion-card class="card">
+        <ion-item class="info" lines="none">
+         <ion-input class="data" type="email" placeholder="entrez votre email" name="email" ngModel required></ion-input>
+        </ion-item>
+      </ion-card>  
+
+      <h5 class="sub_title">Numéro de mobile* :</h5>
+      <ion-card class="card">  
+        <ion-item class="info" lines="none">
+         <ion-input class="data" type="text" placeholder="entrez votre numéro" name="mobile" ngModel required></ion-input>
+        </ion-item>
+      </ion-card>    
   
-    <ion-item class="info">
-      <ion-label for="firstName">*Nom : </ion-label>
-      <ion-input type="text" placeholder="entrez votre nom" name="firstName" ngModel required></ion-input>
-    </ion-item>
+      <br>
+      <h6 *ngIf="state === true" class="champs">* : champs obligatoire </h6>
 
-    <ion-item class="info">
-      <ion-label for="lastName">*Prénom : </ion-label>
-      <ion-input type="text" placeholder="entrez votre prénom" name="lastName" ngModel required></ion-input>
-    </ion-item>
-  
-    <ion-item class="info">
-      <ion-label for="email">*Email : </ion-label>
-      <ion-input type="email" placeholder="entrez votre email" name="email" ngModel required></ion-input>
-    </ion-item>
+      <br>
+      <ion-button class="button" expand="block" type="submit" [disabled]="f.invalid">Enregistrer</ion-button>
 
-    <ion-item class="info">
-      <ion-label for="mobile">*Numéro de mobile : </ion-label>
-      <ion-input type="text" placeholder="entrez votre numéro" name="mobile" ngModel required></ion-input>
-    </ion-item>
-
-    <br>
-    <ion-button class="button" expand="block" type="submit" [disabled]="f.invalid">Enregistrer</ion-button>
-
-    <br>
-    <h6 *ngIf="state === true" class="champs">* : champs obligatoire </h6>
-
-   </form>
+    </form>
 
   </div>
 
 
   <div *ngIf="state === false"> 
-  
-    <ion-item class="info">
-      <ion-label>Nom :  {{ profil.firstName | uppercase }} </ion-label>
-    </ion-item>
-  
-    <ion-item class="info">
-      <ion-label>Prénom :  {{ profil.lastName | ucwords }} </ion-label>
-    </ion-item>
-    
-    <ion-item class="info">
-      <ion-label>Email :  {{ profil.email }} </ion-label>
-    </ion-item>
-  
-    <ion-item class="info">
-      <ion-label>Numéro de mobile :  {{ profil.mobile }}  </ion-label>
-    </ion-item>
 
+    <h5 class="sub_title">Nom :</h5>
+    <ion-card class="card">
+      <ion-item class="info" lines="none">
+       <ion-label class="data">{{ profil.firstName | uppercase }} </ion-label>
+      </ion-item>
+    </ion-card>
+
+    <h5 class="sub_title">Prénom :</h5>
+    <ion-card class="card">
+     <ion-item class="info" lines="none">
+       <ion-label class="data">{{ profil.lastName | ucwords }} </ion-label>
+     </ion-item>
+    </ion-card>
+    
+    <h5 class="sub_title">Email :</h5>
+    <ion-card class="card">
+     <ion-item class="info" lines="none">
+       <ion-label class="data">{{ profil.email }} </ion-label>
+     </ion-item>
+    </ion-card>
+
+    <h5 class="sub_title">Numéro de mobile :</h5>
+    <ion-card class="card">
+     <ion-item class="info" lines="none">
+       <ion-label class="data">{{ profil.mobile }}  </ion-label>
+     </ion-item>
+    </ion-card>
+    
+    
     <br>
     <ion-button class="button" expand="block" (click)="onEdit()">Modifier</ion-button>
   

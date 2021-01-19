@@ -1,29 +1,54 @@
 .toolbar {
-  padding-bottom: 20px;
-  }
+  background-color: white;   
+  height: 96px;
+  padding-top: 1px;
+  margin-bottom: 0px;
+}
   
-.title {
-  font-size: 20px;
-  padding-top: 30px;
+.logo {
+  max-width: 55%;
+  border: 0;
+  margin-top: 15px;
+  margin-left: 70px;
 }
   
   
 .back{
-  margin-top: 20px;
-  margin-bottom: -13px;
+  margin-top: -50px;
   margin-left: 10px;
-  font-size: 30px;
-  color: #3880ff;
+  font-size: 35px;
+  color: #FFBF00;
+}
+
+.header{
+  box-shadow: 0px 0px 25px #22232330;
+  margin-bottom: 15px;
+  overflow: hidden;
+  height: 219px;
 }
 
 
 .research-bar{
-  padding-left: unset;
-  padding-right: unset;
-  -webkit-padding-start: 12px;
-  padding-inline-start: 0px; 
-  -webkit-padding-end: 12px;
-  padding-inline-end: 0px;
+  padding-inline-start: 12px; 
+  padding-inline-end: 12px;
+  margin-top: -90px;
+  margin-bottom: 60px;
+  --background: white; 
+}
+
+.card{
+  margin-top: auto;
+}
+
+.ff_selection{
+  height: 65px;
+}
+
+.avatar{
+  height: 45px;
+  width: 45px;
+  margin-top: 10px;
+  --border-radius: 0%;
 }
 
 

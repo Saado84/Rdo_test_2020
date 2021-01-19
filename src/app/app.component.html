@@ -24,16 +24,32 @@
       <ion-list lines="none"> 
 
         
-        <ion-item (click)="onProfil()">Mon profil </ion-item>
-        <ion-item (click)="onCommande()">Mes commandes passées</ion-item>
-        <ion-item (click)="logOut()">Me déconnecter</ion-item>
-        <ion-item (click)="onApropos()">A propos</ion-item>
+        <ion-item (click)="onProfil()"> 
+          <ion-label>Mon profil</ion-label>
+          <ion-icon name="person" slot="start" color="warning"></ion-icon>
+        </ion-item>
+
+        <ion-item (click)="onCommande()">
+          <ion-label>Mes commandes passées</ion-label>
+          <ion-icon name="list" slot="start" color="warning"></ion-icon>
+        </ion-item>
+
+        <ion-item (click)="logOut()">
+          <ion-label>Me déconnecter</ion-label>
+          <ion-icon name="power" slot="start" color="warning"></ion-icon>
+        </ion-item>
+
+        <ion-item (click)="onApropos()">
+          <ion-label>A propos</ion-label>
+          <ion-icon name="information-circle" slot="start" color="warning"></ion-icon>
+        </ion-item>
        
       </ion-list>
 
-      <h5 class="copyright">RapidO © 2020 - Tous droits réservés</h5>
+      <h5 class="copyright">Wejedli © 2021 - Tous droits réservés</h5>
 
     </ion-content>
+
   </ion-menu>
 
   <ion-router-outlet id="menu-content"></ion-router-outlet>

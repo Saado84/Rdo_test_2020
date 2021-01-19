@@ -1,11 +1,21 @@
+<ion-header>
+
+  <ion-toolbar class="toolbar">
+
+    <img class="logo" src="../../assets/LOGO.png">
+
+    <div class="back">
+      <ion-icon  name="chevron-back-outline" (click)="onBack(fastFood.cat)"></ion-icon>
+    </div>
+    
+  </ion-toolbar>
+
+</ion-header>
+
 
 <ion-content>
 
-  <div class="header"> 
-
-    <div class="back" (click)="onBack(fastFood.cat)">
-      <ion-icon name="chevron-back-outline"></ion-icon>
-    </div>
+  <div class="header" lines="none"> 
     
     <h2>{{ fastFood.name }}</h2>
     <h3>{{ fastFood.adresse }}</h3>  
@@ -34,22 +44,26 @@
   <div class="timeShedule" (click)="onTime($event)">
    <ion-icon name="time-outline"></ion-icon>
   </div>
-
   
-  <ion-list *ngFor="let menu of Menus;  let i=index">
 
-    
-    <ion-item (click)="onSendCompos(i)" routerLink="/menuburger">
-      <ion-avatar slot="start">
-        <img [src]="menu.icone">
-      </ion-avatar>
-      <ion-label class="ion-text-left">
-        <h2>{{ menu.name }}</h2>
-      </ion-label>
-    </ion-item>
-   
+  <div class="flex_menus">
 
-  </ion-list>
+   <ion-list *ngFor="let menu of Menus;  let i=index">
+
+    <ion-card >
+      <ion-item lines="none"(click)="onSendCompos(i)" routerLink="/menuburger">
+        <ion-avatar slot="start">
+          <img [src]="menu.icone">
+        </ion-avatar>
+        <ion-label class="ion-text-left">
+          <h2>{{ menu.name }}</h2>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+
+   </ion-list>
+
+  </div>
 
   <ion-button class="ajouter" size="small" color="primary" [disabled]="sentFavoris" (click)="getFavoris()">+ Ajouter aux favoris</ion-button>
 

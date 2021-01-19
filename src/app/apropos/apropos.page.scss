@@ -1,14 +1,23 @@
-.toolbar {
-    padding-bottom: 20px;
+.header {
+    background-color: white;   
+    height: 96px;
+    padding-top: 1px;
+    box-shadow: 0px 0px 25px #22232330;
+    margin-bottom: 15px;
 }
 
-.title {
-    font-size: 18px;
-    padding-top: 15px;
-}
 
+.logo {
+    max-width: 60%;
+    border: 0;
+    margin-top: 15px;
+    margin-left: 40px;
+}
 
 .back{
-padding-top: 15px; 
-font-size: 17px;
+    --icon-margin-top: 10px;
+    --icon-margin-start: 10px;
+    --icon-font-size: 35px;
 }
+    
+
