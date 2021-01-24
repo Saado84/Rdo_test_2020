@@ -1,34 +1,54 @@
+ion-toolbar {
+    --background: #11191E; 
+    box-shadow: 0px 20px 30px #22232330;
+    margin-bottom: 20px;
+}
+
+ion-title{
+    font-size: 16px;
+    color: white;
+    font-weight: 500;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.close{
+    --background: #11191E;
+}
+
+
 .menufastfood{
-    font-size: inherit;
+    font-size: 17px;
     margin-top: 20px;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .menuname{
     margin-bottom: 8px;
     font-size: 18px;
-    margin-top: 30px;
+    margin-top: 23px;
+    font-weight: revert;
+    color: #1D2126;
 }
 
 .menuprice{
     margin-bottom: 15px;
     font-size: 14px;
-    color: dodgerblue;
+    color: #E59413;
+    font-weight: revert;
 }
 
 .menucompos{
-    color: slategray;
+    color: #707070;
     margin: 3px;
-    font-size: 11px;
+    font-size: 13px;
     line-height: 30px;
-    margin-bottom: 14px;
 }
 
 .ajouter{
-    margin-left: 21px;
     font-size: medium;
-    margin-top: 70px;
-    margin-bottom: 60px;
+    margin-top: 45px;
+    margin-bottom: 40px;
 }
 
 #list{
@@ -40,22 +60,22 @@
 }
 
 .montant{
-    margin-top: 50px;
-    color: dodgerblue;
+    color: #E59413; 
     font-weight: 700;
-    padding-right: -15px;
+    margin-bottom: 50px;
+    margin-top: 10px;
 }
 
 .button_moins{
     margin-top: 45px;
-    margin-left: 75px;
+    margin-left: 35px;
     font-size: 15px;
    
 }
 
 .input{
     font-size: larger;
-    margin-top: 52px;
+    margin-top: 48px;
     margin-left: 15px;
     margin-right: 15px; 
 }

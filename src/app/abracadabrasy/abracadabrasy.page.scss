@@ -75,7 +75,7 @@
 .tel{
     padding-bottom: 0px;
     padding-top: 3px;
-    margin-bottom: 130px;
+    margin-bottom: 75px;
     margin-top: 4px;
     margin-left: 50px;
     margin-right: 330px;
@@ -86,8 +86,8 @@
 .location{
     padding-bottom: 0px;
     padding-top: 0px;
-    margin-bottom: 131px;
-    margin-top: -169px;
+    margin-bottom: 75px;
+    margin-top: -113px;
     margin-left: 275px;
     margin-right: 300px;
     font-size: 29px;
@@ -98,8 +98,8 @@
 
     padding-bottom: 0px;
     padding-top: 0px;
-    margin-bottom: 132px;
-    margin-top: -169px;
+    margin-bottom: 75px;
+    margin-top: -114px;
     margin-left: 327px;
     margin-right: 300px;
     font-size: 30px;
@@ -109,36 +109,48 @@
 .flex_menus {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 ion-card{
     width: 158px;
     margin: 10px;
     height: 158px;
+    border-radius: 6px;
+}
+
+.menu_box{
+    height: 90px;
+    overflow: hidden;
+    width: 165px;
+    margin: auto;
+    text-align: center;
+    margin-top: 20px;
 }
 
 
+.menu_img{
+    max-width: 65%;
+}
 
-.state h3{
+.menu_name {
+    font-size: medium;
+    text-align: center;
+    font-weight: 400;
+    margin-top: -15px;
+}
 
-    font-size: 14px;
-    margin-top: -162px;
-    margin-bottom: 145px;
-    padding-left: 40px;
-    font-weight: bold;
-    color:lightgreen
+ion-footer {
+    height: 65px;
 }
     
 
 .ajouter{
-    margin-top: 60px;
+    margin-top: 15px;
     font-size: smaller;
     padding-left: 120px;
+    --box-shadow: 2px 2px 4px #22232330;
 }
 
-.my-custom-class {
-    max-height: 240px;
-    font-size: larger;
-    font-weight: bold;
-}
+
 

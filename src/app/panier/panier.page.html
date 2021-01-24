@@ -1,16 +1,16 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-button slot="start" (click)="onDismissPage()">
-      <ion-icon name="close-outline"></ion-icon>
+  <ion-toolbar>
+    <ion-button class="close" slot="start" (click)="onDismissPage()">
+      <ion-icon color="primary" name="close-outline"></ion-icon>
     </ion-button>
-    <ion-title>Sélectionner</ion-title>
+    <ion-title>Personnalisez votre formule</ion-title>
   </ion-toolbar>
 </ion-header>
 
 
-<ion-content>
+<ion-content fullscreen>
 
-  <ion-item>
+  <ion-item lines="full">
     <ion-label>
       <h3 class="menufastfood">{{ menu.fastFood }}</h3>
       <h2 class="menuname">{{ menu.name }}</h2>
@@ -27,7 +27,7 @@
     <ion-list id="list">
       <ion-radio-group [(ngModel)]="menu.choiceValue" mode="md">
 
-        <div>
+        <ion-card>
           <ion-item>
             <ion-label>Solo</ion-label>
             <ion-radio slot="start" value="Solo"></ion-radio>
@@ -42,9 +42,9 @@
               <ion-select-option value="samorai">Samorai</ion-select-option>
             </ion-select>
           </ion-item>
-        </div>
+        </ion-card>
     
-        <div>
+        <ion-card>
           <ion-item>
             <ion-label>Menu</ion-label>
             <ion-radio slot="start" value="Menu"></ion-radio>
@@ -69,7 +69,7 @@
             </ion-select>
           </ion-item>
 
-        </div>
+        </ion-card>
 
       </ion-radio-group>
     </ion-list>
@@ -77,24 +77,26 @@
     
     <div id="total">
 
-      <ion-item lines="none" *ngIf="menu.choiceValue === 'Solo'">
-        <ion-note class="montant" text-center>Montant : {{ this.menu.quantMenu*this.menu.priceSolo}} DZD </ion-note>
-      </ion-item>
-
-      <ion-item lines="none" *ngIf="menu.choiceValue === 'Menu'">
-        <ion-note class="montant" text-center>Montant : {{ this.menu.quantMenu*this.menu.priceMenu }} DZD </ion-note>
-      </ion-item>
-
-    
       <ion-button class="button_moins" size="small" type="submit" (click)="popOne()">-</ion-button>
       <ion-text class="input">{{ menu.quantMenu }}</ion-text>
       <ion-button class="button_plus"size="small" type="submit" (click)="pushOne()">+</ion-button>
+
+      <ion-button class="ajouter" size="small" type="submit" (click)="closePanierPage()">Ajouter au panier</ion-button>
+
     </div>
 
   </div>
 
   <div>
-    <ion-button class="ajouter" size="small" type="submit" (click)="closePanierPage()">Ajouter au panier</ion-button> 
+    
+    <ion-item lines="none" *ngIf="menu.choiceValue === 'Solo'">
+      <ion-note class="montant" text-center>Montant : {{ this.menu.quantMenu*this.menu.priceSolo}} DZD </ion-note>
+    </ion-item>
+
+    <ion-item lines="none" *ngIf="menu.choiceValue === 'Menu'">
+      <ion-note class="montant" text-center>Montant : {{ this.menu.quantMenu*this.menu.priceMenu }} DZD </ion-note>
+    </ion-item> 
+
   </div>
 
 </ion-content>
