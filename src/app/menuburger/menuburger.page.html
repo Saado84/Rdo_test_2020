@@ -46,7 +46,7 @@
   <ion-list *ngFor="let compos of Compos; let i = index">
     
     <ion-card>
-     <ion-item (click)="sendMenu(i)">
+     <ion-item lines="none" (click)="sendMenu(i)">
       <!-- <ion-item *ngFor="let compos of Compos; let i = index"> -->
       <ion-label>
         <h2 class="menuname" >{{ compos.name }}</h2>
@@ -54,7 +54,7 @@
         <p class="menucompos">{{ compos.compos }}</p>
         <!-- <ion-button (click)="sendMenu(i)"> Sélectionner </ion-button> --> 
       </ion-label>
-      <ion-icon name="chevron-forward-circle" slot="end"></ion-icon>
+      <ion-icon id="nav_panier" name="chevron-forward-circle" slot="end"></ion-icon>
      </ion-item>
     </ion-card>
     

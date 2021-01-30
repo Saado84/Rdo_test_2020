@@ -63,6 +63,8 @@
     overflow: hidden;
 }
 
+
+
 .img-box{
     width: 130px;
     height: 130px;
@@ -84,15 +86,25 @@
     margin-bottom: 20px;
 }
 
+
+
+ion-card{
+    margin-bottom: 12px;
+}
+
+ion-item {
+    height: 120px;
+}
+
 .menuname{
-    margin-bottom: 8px;
+    margin-bottom: 3px;
     font-size: 18px;
     margin-top: 8px;
     color: #1D2126;
 }
 
 .menuprice{
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-size: 14px;
     color: #E59413;
     margin-left: 190px;
@@ -102,7 +114,13 @@
 .menucompos{
     color: #727C8E;
     font-size: 11px;
-    margin-right: 150px;
-    padding-bottom: 30px;
+    margin-right: 130px;
     margin-top: -30px;
+    white-space: normal;
+    word-break: normal;
+}
+
+#nav_panier{
+    margin-top: 18px;
+    margin-right: 6px;
 }

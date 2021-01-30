@@ -1,21 +1,60 @@
-.title {
-    font-size: 18px;
-    padding-top: 25px;
+.back_gd {
+    background: #FFBF00; 
+    overflow: hidden;
+    height: -webkit-fill-available; 
 }
 
-.toolbar {
-    padding-bottom: 30px;
+.back_gd_img{
+    padding-left: 11px;
+    opacity: 1;
+    max-width: 130%;
+}
+
+.all{
+    margin-top: -589px;
+}
+
+.back_gd_logo {
+    max-width: 40%;
+    margin-left: 110px;
+    margin-bottom: 30px;
 }
 
 .info {
-    margin-top: 15px;
-    padding-bottom: 4px;
+    width: 315px;
+    --border-radius: 8px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+ion-input {
+    font-size: 15px; 
 }
 
 .button{
-    font-size: large;
-    margin-top: 20px;
-    margin-bottom: -15px;
+    --background: #1D2126;
+    width: 315px;
+    height: 51px;
+    margin-left: 30px;
+    --box-shadow: 0px 2px 13px black;
+    margin-bottom: 35px;
+    font-weight: 700;
+    font-size: 17px;
+    --background-activated: #596573;
+    --background-focused: #596573;
+}
+
+.register_you{
+    margin-bottom: 10px;
+}
+
+ion-text {
+    font-size: 11px;
+    margin-left: 100px;
+}
+
+.buttons {
+    margin-top: 35px;
 }
 
 

@@ -16,6 +16,11 @@ ion-title{
     --background: #11191E;
 }
 
+#menu_info{
+    --padding-bottom: 15px;
+    margin-bottom: 12px;
+}
+
 
 .menufastfood{
     font-size: 17px;
@@ -45,17 +50,43 @@ ion-title{
     line-height: 30px;
 }
 
+.formule {
+    font-weight: 500;
+}
+
+.price {
+    color: #E59413;
+    font-size: 15px;
+}
+
+.sauce_boisson {
+    margin-left: 57px;
+    font-size: 14px;
+}
+
+.sauc_boiss_choix {
+    font-size: 14px;
+}
+
 .ajouter{
     font-size: medium;
     margin-top: 45px;
     margin-bottom: 40px;
+    --box-shadow: 2px 2px 4px #22232330;
 }
 
 #list{
-    padding-right: 20px;
+    margin: 10px 12px 0px 12px;
+}
+
+ion-card {
+    margin-bottom: 30px;
+    box-shadow: 1px 7px 18px #E7EAF0;
 }
 
 #total{
+    margin-left: 8px;
+    margin-top: -15px;
     display: inline-flex;
 }
 
@@ -70,6 +101,8 @@ ion-title{
     margin-top: 45px;
     margin-left: 35px;
     font-size: 15px;
+    --box-shadow: 2px 2px 4px #22232330;
+    --background: lightgrey;
    
 }
 
@@ -85,4 +118,6 @@ ion-title{
     margin-top: 45px;
     font-size: 15px;
     margin-right: 37px;
+    --box-shadow: 2px 2px 4px #22232330;
+    --background: lightgrey;
 }

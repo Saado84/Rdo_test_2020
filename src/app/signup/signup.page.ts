@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth'; 
 import { AngularFireDatabase } from '@angular/fire/database';
 import { NgForm } from '@angular/forms'; 
+import { NavController} from '@ionic/angular';
 
 
 @Component({
@@ -12,7 +13,10 @@ import { NgForm } from '@angular/forms';
 export class SignupPage {
  
 
-  constructor(public afAuth: AngularFireAuth, public afDB: AngularFireDatabase) { }
+  constructor(
+    public afAuth: AngularFireAuth, 
+    public afDB: AngularFireDatabase,
+    public navCtrl: NavController) { }
 
 
   onSubmit(form: NgForm) {
@@ -48,6 +52,11 @@ export class SignupPage {
       email: mail,
       mobile: tel
     })
+  }; 
+
+
+  onBack(){
+    this.navCtrl.navigateBack('/login')
   }; 
 
 }

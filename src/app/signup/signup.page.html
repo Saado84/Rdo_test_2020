@@ -1,65 +1,79 @@
-<ion-header>
-  <ion-toolbar class="toolbar">
+<!-- <ion-header>
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button text="Retour" class="back"></ion-back-button>
+      <ion-back-button class="back"></ion-back-button>
     </ion-buttons>
     <ion-title class="title">Inscription</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> 
 
-<br>
+<br> -->
 
 <ion-content>
 
-  <div>
+ <div class="back_gd">
+
+  <img class="back_gd_img" src="../../assets/fond1.png">
+
+  <div class="all">
+
+    <div class="back">
+      <ion-icon  name="chevron-back-outline" (click)="onBack()"></ion-icon>
+    </div>
+
+    <img class="back_gd_logo" src="../../assets/logo_home1.png">
 
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
       <ion-item class="info">
-        <ion-label for="firstName">*Nom :</ion-label>
+        <!-- <ion-label for="firstName">*Nom :</ion-label> -->
+        <ion-icon name="person-outline" slot="start"></ion-icon>
         <ion-input type="text" 
-        placeholder="entrez votre nom"  
+        placeholder="Nom*"  
         name="firstName" ngModel required></ion-input>
       </ion-item>
 
       <ion-item class="info">
-        <ion-label for="lastName">*Prénom :</ion-label>
+        <!-- <ion-label for="lastName">*Prénom :</ion-label> -->
+        <ion-icon name="person-outline" slot="start"></ion-icon>
         <ion-input type="text" 
-        placeholder="entrez votre prénom" 
+        placeholder="Prénom*" 
         name="lastName" ngModel required></ion-input>
       </ion-item>
 
       <ion-item class="info">
-        <ion-label for="email">*Email :</ion-label>
+        <!-- <ion-label for="email">*Email :</ion-label> -->
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
         <ion-input type="email" 
-        placeholder="entrez votre email" 
+        placeholder="Email*" 
         name="email" ngModel required></ion-input>
       </ion-item>
 
       <ion-item class="info">
-        <ion-label for="password">*Mot de passe :</ion-label>
+        <!-- <ion-label for="password">*Mot de passe :</ion-label> -->
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
         <ion-input type="password"
-        placeholder="choisissez un mot de passe" 
+        placeholder="Mot de passe*" 
         name="password" ngModel required></ion-input>
       </ion-item>
 
       <ion-item class="info">
-        <ion-label for="mobile">*Numéro de mobile :</ion-label>
+        <!-- <ion-label for="mobile">*Numéro de mobile :</ion-label> --> 
+        <ion-icon name="call-outline" slot="start"></ion-icon>
         <ion-input type="text" 
-        placeholder="entrez votre numéro" 
+        placeholder="Numéro de mobile*" 
         name="mobile" ngModel required></ion-input>
       </ion-item>
 
       <br>
-
-      <ion-button class="button" type="submit" expand="block" [disabled]="f.invalid">Je m'inscrits</ion-button>
-
-      <br>
-
       <h6 class="champs">* : champs obligatoire </h6>
+      <ion-button class="button" type="submit" expand="block" [disabled]="f.invalid">Je m'inscrits</ion-button>
+      
 
     </form>
 
   </div>
+
+ </div>
 
 </ion-content>

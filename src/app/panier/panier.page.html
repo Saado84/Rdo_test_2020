@@ -10,7 +10,7 @@
 
 <ion-content fullscreen>
 
-  <ion-item lines="full">
+  <ion-item id="menu_info" lines="full">
     <ion-label>
       <h3 class="menufastfood">{{ menu.fastFood }}</h3>
       <h2 class="menuname">{{ menu.name }}</h2>
@@ -29,14 +29,14 @@
 
         <ion-card>
           <ion-item>
-            <ion-label>Solo</ion-label>
+            <ion-label class="formule">Solo</ion-label>
             <ion-radio slot="start" value="Solo"></ion-radio>
-            <ion-text slot="end">{{ menu.priceSolo }} DZD </ion-text>
+            <ion-text class="price" slot="end">{{ menu.priceSolo }} DZD </ion-text>
           </ion-item>
 
           <ion-item>
-            <ion-label>Sauce</ion-label>
-            <ion-select placeholder="Select One" mode="ios" [(ngModel)]="menu.sauce">
+            <ion-label class="sauce_boisson" >Sauce</ion-label>
+            <ion-select class="sauc_boiss_choix" placeholder="Select One" mode="ios" [(ngModel)]="menu.sauce">
               <ion-select-option value="ketchup">Ketchup</ion-select-option>
               <ion-select-option value="mayonaise">Mayonnaise</ion-select-option>
               <ion-select-option value="samorai">Samorai</ion-select-option>
@@ -46,14 +46,14 @@
     
         <ion-card>
           <ion-item>
-            <ion-label>Menu</ion-label>
+            <ion-label class="formule">Menu</ion-label>
             <ion-radio slot="start" value="Menu"></ion-radio>
-            <ion-text slot="end">{{ menu.priceMenu }} DZD</ion-text>
+            <ion-text class="price" slot="end">{{ menu.priceMenu }} DZD</ion-text>
           </ion-item>
 
           <ion-item lines="none">
-            <ion-label>Sauce</ion-label>
-            <ion-select placeholder="Select One" mode="ios" [(ngModel)]="menu.sauce">
+            <ion-label class="sauce_boisson">Sauce</ion-label>
+            <ion-select class="sauc_boiss_choix" placeholder="Select One" mode="ios" [(ngModel)]="menu.sauce">
               <ion-select-option value="Ketchup">Ketchup</ion-select-option>
               <ion-select-option value="Mayonaise">Mayonnaise</ion-select-option>
               <ion-select-option value="Samorai">Samorai</ion-select-option>
@@ -61,8 +61,8 @@
           </ion-item>
 
           <ion-item>
-            <ion-label>Boisson</ion-label>
-            <ion-select placeholder="Select One" mode="ios"[(ngModel)]="menu.boisson">
+            <ion-label class="sauce_boisson">Boisson</ion-label>
+            <ion-select class="sauc_boiss_choix" placeholder="Select One" mode="ios"[(ngModel)]="menu.boisson">
               <ion-select-option value="Coca-Cola 33cl">Coca-Cola 33cl</ion-select-option>
               <ion-select-option value="Selecto 33cl">Selecto 33cl</ion-select-option>
               <ion-select-option value="Eau plate 33cl">Eau plate 33cl</ion-select-option>
@@ -90,11 +90,11 @@
   <div>
     
     <ion-item lines="none" *ngIf="menu.choiceValue === 'Solo'">
-      <ion-note class="montant" text-center>Montant : {{ this.menu.quantMenu*this.menu.priceSolo}} DZD </ion-note>
+      <ion-note class="montant" text-center>Montant Total : {{ this.menu.quantMenu*this.menu.priceSolo}} DZD </ion-note>
     </ion-item>
 
     <ion-item lines="none" *ngIf="menu.choiceValue === 'Menu'">
-      <ion-note class="montant" text-center>Montant : {{ this.menu.quantMenu*this.menu.priceMenu }} DZD </ion-note>
+      <ion-note class="montant" text-center>Montant Total : {{ this.menu.quantMenu*this.menu.priceMenu }} DZD </ion-note>
     </ion-item> 
 
   </div>

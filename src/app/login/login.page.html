@@ -1,27 +1,37 @@
-<ion-header>
-  <ion-toolbar class="toolbar">
-    <ion-title class="title">Connexion</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<br>
-
 <ion-content>
 
-  <ion-item class="info">
-    <ion-label>Email : </ion-label>
-    <ion-input [(ngModel)]="loginData.email" type="email" placeholder="entres votre email"></ion-input>
-  </ion-item>
+  <div class="back_gd">
 
-  <ion-item>
-    <ion-label class="info">Mot de passe : </ion-label>
-    <ion-input [(ngModel)]="loginData.password" type="password" placeholder="entrez votre mot de passe"></ion-input>
-  </ion-item>
+    <img class="back_gd_img" src="../../assets/fond1.png">
 
-  <br>
+    <div class="all">
 
-  <ion-button class="button" expand="block" (click)="login()">Connexion</ion-button>
-  <br>
-  <ion-button class="button" expand="block" (click)="signUp()">Inscription</ion-button>
+     <img class="back_gd_logo" src="../../assets/logo_home1.png">
+
+     <ion-item class="info">
+      <!-- <ion-label>Email : </ion-labe> -->
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-input [(ngModel)]="loginData.email" type="email" placeholder="Adresse email"></ion-input>
+     </ion-item>
+
+     <ion-item class="info">
+      <!-- <ion-label >Mot de passe : </ion-label> -->
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-input [(ngModel)]="loginData.password" type="password" placeholder="Mot de passe"></ion-input>
+     </ion-item>
+
+     <br>
+
+     <div class="buttons"> 
+       <ion-button class="button" expand="block" (click)="login()">Connexion</ion-button>
+       <div class="register_you">
+         <ion-text>Nouveau utilisateur ? Inscrivez-vous</ion-text>
+       </div>
+       <ion-button class="button" expand="block" (click)="signUp()">Inscription</ion-button>
+      </div>
+
+    </div>
+
+  </div>
 
 </ion-content>
