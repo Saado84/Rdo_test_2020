@@ -14,6 +14,19 @@
   margin-left: 70px;
 }
 
+#items_list {
+  margin-bottom: 50px;
+}
+
+#infos {
+  --background: #1D2126;
+    height: 160px;
+}
+
+#label {
+  margin-bottom: 25px;
+}
+
 .subtitle{
   font-size: 20px;
   margin-top: 35px;
@@ -21,31 +34,56 @@
 }
 
 .menufastfood{
-  font-size: medium;
-  margin-top: 45px;
-  font-weight: 700;
+  color: white; 
+  font-size: 16px;
+  margin-top: 15px;
+  font-weight: 500;
 }
 
 .menuname{
+  color: #FFBF00;
+  font-weight: 700;
   margin-bottom: 8px;
   font-size: 18px;
-  margin-top: 27px;
+  margin-top: 20px;
 }
 
-.menuprice{
-  font-size: 14px;
-  color: dodgerblue;
-  margin-top: 25px;
- 
+
+#montant {
+  --background: #11191E;
+}
+
+#price {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.menuprice_1{
+  color: #FFBF00;
+  width: 50%;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.menuprice_2 {
+  color: white;
+  margin-left: 250px;
+  margin-top: -23px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .menucompos{
-  color: slategray;
-  margin: 3px;
-  font-size: 11px;
-  line-height: 30px;
-  margin-bottom: 14px;
-  margin-top: -5px;
+  color: white;
+  opacity: 0.8;
+  margin: 0px;
+  font-size: 12px;
+  line-height: inherit;
+  white-space: normal;
+  word-break: normal;
+  width: 65%;
 }
 
 .quantmenu{
@@ -56,45 +94,71 @@
   margin-bottom: 25px;
 }
 
+#collect {
+  height: 100px;
+}
+
+#bouttons {
+  --min-height: 100px; 
+}
+
 .commander{
   font-size: medium;
-  margin-right: 20px;
-  margin-bottom: -45px;
+  height: 38px;
+  width: 117px;
+  --box-shadow: 3px 3px 5px #22232330;
+  margin: 0px 25px 0px 0px;
 }
 
 .supprimer{
-  margin-top: -50px;
   font-size: medium;
-  margin-right: -100px
+  margin: 0px 0px 0px 10px;
+  height: 38px;
+  width: 117px;
+  --box-shadow: 3px 3px 5px #22232330;
 }
 
 .time {
   font-size: 13px;
   font-weight: 800;
   text-align: initial;
+  margin-top: 40px;
+}
+
+.time_title {
+  font-size: 17px;
+  font-weight: bolder;
+  color: #1D2126;
+}
+
+.time_subtitle {
+  font-weight: 400;
+  font-size: 13px;
+  color: #1D2126;
 }
 
 .timeInPut{
-  margin-right: 20px;
-  background-color: navajowhite;
+  margin-right: 25px;
   padding-right: 35px;
   padding-left: 35px;
   padding-bottom: 9px;
   padding-top: 10px;
   margin-bottom: 7px;
   border-radius: 14px;
+  margin-top: 48px;
+  box-shadow: 1px 5px 13px #22232330;
+  border-radius: 4px;
+  height: 45px;
+  width: 118px;
 
 }
 
 .timeKeep{
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
-  margin-left: -10px;
-  margin-right: -10px;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-bottom: 0px;
-  padding-top: 0px;
+  padding: 0px; 
+  text-align: center;
+  margin: 1px 0px 0px 0px;
 
 }
 

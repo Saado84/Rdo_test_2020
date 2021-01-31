@@ -8,23 +8,37 @@
 
 
 <ion-content fullscreen>
+
   <div>
+
     <ion-list *ngFor="let favoris of favorisList, let i = index">
 
-      <ion-item>
+      <ion-card>
+        <ion-item lines="none">
+          
+          <div class="flex">
+          
+            <div id="icone">
+              <img class="icone_img" [src]="favoris.icone">
+            </div>
 
-        <ion-label>
+            <ion-label>
 
-          <h3 class="name">{{ favoris.name }}</h3>
-          <h2 class="adresse">{{ favoris.adresse }}</h2>
-          <p class="tel">{{ favoris.tel }}</p>
+             <h3 class="name">{{ favoris.name }}</h3>
+             <h2 class="adresse">{{ favoris.adresse }}</h2>
+             <p class="tel">{{ favoris.tel }}</p>
 
-        </ion-label>    
+            </ion-label> 
+                    
+            <div class="bouttons">
+             <ion-button size="small" color="light" class="supprimer" (click)="deleteMenu(i)">Supprimer</ion-button>
+             <ion-button size="small" color="primary" class="Menu" (click)="onSendMenus(i)" routerLink="/abracadabrasy">Voir menu</ion-button>
+            </div>
+        
+          </div>
 
-        <ion-button size="small" color="light" class="supprimer" (click)="deleteMenu(i)">Supprimer</ion-button>
-        <ion-button size="small" color="primary" class="Menu" (click)="onSendMenus(i)" routerLink="/abracadabrasy">Voir menu</ion-button>
-
-      </ion-item>
+        </ion-item>
+      </ion-card>
      
     </ion-list>
 

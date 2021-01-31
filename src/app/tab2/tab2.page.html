@@ -11,32 +11,46 @@
 
   <div>
 
-    <ion-list *ngFor="let menu of menuList, let i = index">
+    <ion-list id="items_list" *ngFor="let menu of menuList, let i = index">
 
-      <ion-item lines="none" >
-        <ion-label>
+      <ion-item id="infos" lines="none" >
+
+        <ion-label id="label">
           <h3 class="menufastfood">{{ menu.fastFood }}</h3>
           <h2 class="menuname">{{ menu.name }}</h2>
           <p class="menucompos">{{ menu.compos }}</p>
         </ion-label>
+
       </ion-item>
 
-        
+ 
       <ion-item lines="none"> 
+
         <ion-label id="resume">
           <h3 class="quantmenu">{{ menu.choiceValue }} X {{ menu.quantMenu }}</h3>
           <p>Sauce: {{ menu.sauce }}</p>
           <p>{{ onDrink(i) }}</p>
-          <h3 class="menuprice">Montant: {{ onPrice(i)*menu.quantMenu }} DZD</h3>
         </ion-label>
-    
-        <ion-button size="small" color="light" class="supprimer" (click)="deleteMenu(i)">Supprimer</ion-button>
-        <ion-button size="small" color="primary" class="commander" (click)="addMenu(i)">Commander</ion-button>
     
       </ion-item>
 
-      <ion-item (click)="getHoraires(i)">
-        <ion-label class="time">Je récupère <br> ma commande à : </ion-label>
+
+      <ion-item id="montant" lines="none"> 
+
+        <ion-label id="price">
+          <h3 class="menuprice_1">Montant total : </h3>
+          <h3 class="menuprice_2">{{ onPrice(i)*menu.quantMenu }} DZD</h3>
+        </ion-label>
+    
+      </ion-item>
+
+      <ion-item id="collect" (click)="getHoraires(i)" lines="none">
+
+        <ion-label class="time">
+          <h4 class="time_title">Heure de collect</h4>
+          <h3 class="time_subtitle">Je récupère ma commande à : </h3>
+        </ion-label>
+
         <div class="timeInPut">
         <ion-datetime class="timeKeep" 
         mode="ios"
@@ -44,9 +58,15 @@
         [min]="heureOV" [max]="heureFM" 
         picker-format="HH:mm"
         display-timezone="Africa/Algiers"
-        placeholder="Choisissez l'heure"
+        placeholder="00:00"
         [(ngModel)]="initialTime"></ion-datetime>
-        </div>  
+        </div> 
+
+      </ion-item>
+
+      <ion-item id="bouttons" lines="full">
+        <ion-button slot="start" size="small" color="light" class="supprimer" (click)="deleteMenu(i)">Supprimer</ion-button>
+        <ion-button slot="end" size="small" color="primary" class="commander" (click)="addMenu(i)">Commander</ion-button>
       </ion-item>
 
     </ion-list>

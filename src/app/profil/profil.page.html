@@ -3,7 +3,7 @@
   <ion-toolbar class="header">
 
     <ion-buttons slot="start">
-      <ion-back-button class="back"text="" icon="chevron-back"></ion-back-button>
+      <ion-back-button class="retour" text="" icon="chevron-back"></ion-back-button>
     </ion-buttons>
 
     <img class="logo" src="../../assets/LOGO.png">
@@ -52,7 +52,7 @@
       <h6 *ngIf="state === true" class="champs">* : champs obligatoire </h6>
 
       <br>
-      <ion-button class="button" expand="block" type="submit" [disabled]="f.invalid">Enregistrer</ion-button>
+      <ion-button class="save_modif" expand="block" type="submit" [disabled]="f.invalid">Enregistrer</ion-button>
 
     </form>
 
@@ -91,7 +91,7 @@
     
     
     <br>
-    <ion-button class="button" expand="block" (click)="onEdit()">Modifier</ion-button>
+    <ion-button class="save_modif" expand="block" (click)="onEdit()">Modifier</ion-button>
   
   </div>
 
