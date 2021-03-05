@@ -49,9 +49,6 @@
 
 <ion-content>
 
-  
-  
-
   <div class="flex_menus">
 
    <ion-list *ngFor="let menu of Menus;  let i=index">
@@ -64,15 +61,6 @@
       <ion-card-header>
         <ion-card-title class="menu_name">{{ menu.name }}</ion-card-title>
       </ion-card-header>
-
-      <!-- <ion-item lines="none"(click)="onSendCompos(i)" routerLink="/menuburger">
-        <ion-thumbnail slot="start">
-          <img [src]="menu.icone">
-        </ion-thumbnail>
-        <ion-label >
-          <h2>{{ menu.name }}</h2>
-        </ion-label>
-      </ion-item> --> 
 
     </ion-card>
 

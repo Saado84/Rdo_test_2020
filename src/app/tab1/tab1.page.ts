@@ -35,7 +35,7 @@ export class Tab1Page {
     private routerOutlet: IonRouterOutlet,
     public navCtrl:NavController) { 
 
-    }
+  }
 
   
   onOpenList(index: number){

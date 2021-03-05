@@ -25,7 +25,7 @@
 
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
 
-      <ion-item class="info">
+      <ion-item class="info"lines="none">
         <!-- <ion-label for="firstName">*Nom :</ion-label> -->
         <ion-icon class="icone" name="person-outline" slot="start"></ion-icon>
         <ion-input type="text" 
@@ -33,7 +33,7 @@
         name="firstName" ngModel required></ion-input>
       </ion-item>
 
-      <ion-item class="info">
+      <ion-item class="info" lines="none">
         <!-- <ion-label for="lastName">*Prénom :</ion-label> -->
         <ion-icon class="icone" name="person-outline" slot="start"></ion-icon>
         <ion-input type="text" 
@@ -41,7 +41,7 @@
         name="lastName" ngModel required></ion-input>
       </ion-item>
 
-      <ion-item class="info">
+      <ion-item class="info" lines="none">
         <!-- <ion-label for="email">*Email :</ion-label> -->
         <ion-icon class="icone" name="mail-outline" slot="start"></ion-icon>
         <ion-input type="email" 
@@ -49,7 +49,7 @@
         name="email" ngModel required></ion-input>
       </ion-item>
 
-      <ion-item class="info">
+      <ion-item class="info" lines="none">
         <!-- <ion-label for="password">*Mot de passe :</ion-label> -->
         <ion-icon class="icone" name="lock-closed-outline" slot="start"></ion-icon>
         <ion-input type="password"
@@ -57,7 +57,7 @@
         name="password" ngModel required></ion-input>
       </ion-item>
 
-      <ion-item class="info">
+      <ion-item class="info" lines="none">
         <!-- <ion-label for="mobile">*Numéro de mobile :</ion-label> --> 
         <ion-icon class="icone" name="call-outline" slot="start"></ion-icon>
         <ion-input type="text" 

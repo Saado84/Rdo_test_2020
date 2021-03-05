@@ -23,15 +23,17 @@
   <ion-list *ngFor="let fastFood of fastFoods | async; let i= index ">
    
     <ion-card class="card">
-     <ion-item class="ff_selection" lines="none" (click)="onSendMenus(i)">
-       <ion-avatar class="avatar" slot="start">
-         <img [src]="fastFood.icone">
-       </ion-avatar>
-       <ion-label>
-         <h2>{{ fastFood.name }}</h2>
-       </ion-label>
-       <ion-icon name="chevron-forward-circle" slot="end"></ion-icon>
-     </ion-item>
+
+      <ion-item class="ff_selection" lines="none" (click)="onSendMenus(i)">
+        <ion-avatar class="avatar" slot="start">
+          <img [src]="fastFood.icone">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ fastFood.name }}</h2>
+        </ion-label>
+        <ion-icon name="chevron-forward-circle" slot="end"></ion-icon>
+      </ion-item>
+      
     </ion-card>
     
   </ion-list>

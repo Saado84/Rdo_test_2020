@@ -33,6 +33,7 @@
     "@ionic/storage": "^2.2.0",
     "@types/google-maps": "^3.2.2",
     "call-number": "^1.0.1",
+    "cordova-android": "^8.1.0",
     "cordova-browser": "6.0.0",
     "cordova-plugin-geolocation": "^4.0.2",
     "cordova-plugin-googlemaps": "^2.6.2",
@@ -89,7 +90,8 @@
       "mx.ferreyra.callnumber": {}
     },
     "platforms": [
-      "browser"
+      "browser",
+      "android"
     ]
   }
 }

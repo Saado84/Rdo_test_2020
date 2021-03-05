@@ -50,12 +50,11 @@
 
 }
 
-.img-box{
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0px 3px 7px darkgrey;
+.flex{
+    display: flex;
+    justify-content: center;
+    margin-top: -76px;
+    margin-bottom: -110px;
 }
 
 .border-white{
@@ -64,12 +63,12 @@
     width: fit-content;
 }
 
-
-.flex{
-    display: flex;
-    justify-content: center;
-    margin-top: -76px;
-    margin-bottom: -110px;
+.img-box{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0px 3px 7px darkgrey;
 }
 
 .tel{
